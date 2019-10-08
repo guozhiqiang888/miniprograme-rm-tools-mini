@@ -1,0 +1,16 @@
+<!--pages/login/login.wxml-->
+<view class="img-waper">
+  <image bindtap="onborading" class="img" src="./img/img_welcome.png"></image>
+</view>
+<view class="content-waper">
+  <view class="content-wel">
+    <view class="title">欢迎</view>
+    <view class="title pd-top">Welcome</view>
+    <view class="note-zh note-font">请选择您的语言</view>
+    <view class="note-font">Please select your language</view>
+  </view>
+  <view class="content-btn">
+    <input id="zh" class="buttons" type="button" value="中文" bindtap="goToHome"></input>
+    <input id="en" class="buttons" type="button" value="English" bindtap="goToHome"></input>
+  </view>
+</view>

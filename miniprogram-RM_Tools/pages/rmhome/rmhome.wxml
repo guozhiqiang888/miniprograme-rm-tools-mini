@@ -1,0 +1,38 @@
+<!--pages/rmhome/rmhome.wxml-->
+<view class="sales-waper">
+  <label class="label-waper">My sales lead </label>
+  <view class="icon_poson"></view>
+</view>
+
+<view class="search-waper">
+  <view class="search-box">
+    <input class="search-input" placeholder="Search"></input>
+  </view>
+  <view class="filter-label">Filter by</view>
+  <view class="filter-waper">
+    <view class="items">Active(169)</view>
+    <view class="items">Closed(120)</view>
+    <view class="item-last">
+      <view class="item-last-title item-active">Cold(52)</view>
+      <image class="filter-icon" src="../../pictures/rmhome/icn_Filter.png"></image>
+    </view>
+  </view>
+</view>
+<view class="content-wapper">
+  <view class="proity">High
+  </view>
+  <view class="content">
+    <view class="com-name">华为技术有限公司 <view class="icon"></view></view>
+    <view class="item-status">
+      <view class="item-font">Declined by bank</view>
+      <view class="item-date">11 Jul</view>
+      <view class="icon-warning"></view>
+    </view>
+    <view class="item-status">
+      <view class="item-font">Responsible RM</view>
+      <view class="item-date">Chen Cheng</view>
+      </view>
+  </view>
+  <view class="icon-right"></view>
+</view>
+<!-- <web-view src="https://uat-cmb-wechat.services.hsbc.com.cn/prd-wechat-bsl-logon/dist/rmTools/index.html"></web-view> -->
