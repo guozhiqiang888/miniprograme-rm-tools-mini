@@ -6,67 +6,20 @@ Page({
    */
   data: {
     role:"1",
+    checkbox:false,
+    prospectCount:0,
     pageInfo:{
-      slidebutton1: ""
+      slidebutton1: "",
+      listradio: true,
+      warning: false,
+      alert: false
     },
-    reports:{
-      showView: false //show report generted view
-    },
-    zIndexHid:"", // for search box hidden
-    taskFoucs: true, //this is for border of task/reports
-    reportsFoucs: false,
-    swiper:{
-      indicatorDots: true,
-      autoplay: true,
-      interval: 5000,
-      duration: 1000,
-      current: 0
-    },
-    tasksInfor:[],
-    hidden:"hidden",
-    filterShow: false,
-    filterIconHidden: "",
-    dropdownList: [ //for report dropdow box
-      { name: "Choose report type",selected: false },
-      { name: "RM preference",selected: true },
-      { name: "RM report",selected:false }
-    ],
-    prospectDropdownList: [ //for report dropdown list
-      { name: "WellSpring & Co", selected: false },
-      { name: "Tiger Industrial", selected: true },
-      { name: "Second Time Investment", selected: false },
-      { name: "Ping International Ltd", selected: false },
-      ],
-    listData: [ // mail table infor
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "Lorem ipsurm dolor sit amet consectetur adipiscing elit. Porin luctus. esta euismod" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" },
-      { "timeline": "20.08.2019", "actionst": "Date of assigment", "notes": "" }
-    ]
+    filterItemStyle:{
+      item1:"item-active",
+      item2:"",
+      item3:""
+    }
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -75,6 +28,28 @@ Page({
     const role = "1" //getApp().globalData['role'];
     let pageInfo = {
     }
+    wx.getSystemInfo({
+      success: function(res) {
+        let clientHeight = res.windowHeight;
+        let pxToRpxScale = 750 / res.windowWidth;
+        // 状态栏的高度
+        let ktxStatusHeight = res.statusBarHeight;
+        // 导航栏的高度
+        let navigationHeight = 44 ;
+        // window的宽度
+        let ktxWindowWidth = res.windowWidth;
+        // window的高度
+        let ktxWindowHeight = res.windowHeight;
+        // 屏幕的高度
+        let ktxScreentHeight = res.screenHeight;
+        // 底部tabBar的高度
+        let tabBarHeight = ktxScreentHeight - ktxStatusHeight - navigationHeight - ktxWindowHeight;
+        _this.setData({
+          height: clientHeight,
+          tabbarheight: tabBarHeight
+        });
+      },
+    })
     getApp().getNls(_this,function(){
       if(role == '2'){
         pageInfo['slidebutton1'] = _this.data.nls.rmhome.panel.sector;
@@ -89,161 +64,199 @@ Page({
       });
     });
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
   },
-  switchPanel: function(event) {
-    let _this = this;
-    let swiper = _this.data.swiper;
-    let target = event.currentTarget.id || event.detail.current;
-    switch (target){
-      case 1:
-      case "1":
-        _this.setData({ taskFoucs: false, reportsFoucs: true });
-        swiper.current = 1;
+  filterActions(event){
+    let _this=this;
+    let itemId = event.currentTarget.dataset.items;
+    switch(itemId){
+      case '1':
         _this.setData({
-          filterIconHidden:"hidden"
+          filterItemStyle: {
+            item1: 'item-active',
+            item2: '',
+            item3: '',
+          }
         })
-        _this.setData({ swiper: swiper});
         break;
-      case 0:
-      case "0":
-      case "Sector Insights":
-      case "Tasks":
-        swiper.current = 0;
+      case '2':
         _this.setData({
-          filterIconHidden: ""
+          filterItemStyle: {
+            item1: '',
+            item2: 'item-active',
+            item3: '',
+          }
         })
-        _this.setData({ swiper: swiper });
-        _this.setData({ taskFoucs: true, reportsFoucs: false });
         break;
-      default:
-        _this.setData({ taskFoucs: true, reportsFoucs: false });
+      case '3':
+        _this.setData({
+          filterItemStyle: {
+            item1: '',
+            item2: '',
+            item3: 'item-active',
+          }
+        })
         break;
+        default:
+        _this.setData({
+          filterItemStyle: {
+            item1: 'item-active',
+            item2: '',
+            item3: '',
+          }
+        })
     }
   },
-  mySelect : function(e) {
-    var name = e.currentTarget.dataset.name
-    this.setData({
-      tihuoWay: name,
-      select: false
-    })
-  },
-  bindShowMsg : function() {
-    this.setData({
-      select: !this.data.select
-    })
-  },
-  onFilterHandler:function(e){
-    console.log('parent');
-    this.setData({
-      filterShow: e.detail.filterShow,
-      hidden: e.detail.hidden
-    });
-  },
-  getDetails:function(e){
-    wx.navigateTo({
-      url: '../taskdetail/taskdetail',
-    })
-  },
-  generateReport:function(){
-    let reportss = {
-        showView: true
-    }
-    this.setData({
-      reports: reportss
-    });
-  },
-  back:function(){
-    let reportss = {
-      showView: false
-    }
-    this.setData({
-      reports: reportss
-    });
-  },
-  bindinput:function(e){
-    console.log(e);
-  },
-  mail: function (e) {
-    let zIndex = '';
-    let deviceInfo = wx.getSystemInfoSync();
-    let animation = wx.createAnimation({
-      duration: 1000,
-      timingFunction: 'ease',
+  showCostDetailFun() {
+    // 显示遮罩层
+    var animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: "linear",
       delay: 0
     })
-    if ("send" == e.detail.target || "cancel" === e.detail.target){
-      zIndex = "";
-      animation.translate(0, 0).step();
-    }else{
-      zIndex = "z-index-hidden";
-      animation.translate(0, -deviceInfo.windowHeight).step();
+    animation.translateY(-this.data.height-this.data.tabbarheight+10).step()
+    this.setData({
+      animationData: animation.export(),
+      showCostDetail: true,
+      show:true
+    })
+    wx.hideTabBar({
+      aniamtion: false,
+      success: function () {
+        console.log('tabbar hidden');
+      }
+    })
+  },
+  hideCostDetailFun() {
+    // 隐藏遮罩层
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: "linear",
+      delay: 0
+    })
+    animation.translateY(600).step()
+    this.setData({
+      animationData: animation.export(),
+    })
+    wx.showTabBar({
+      aniamtion:false,
+      success:function(){
+        console.log('tabbar show');
+      }
+    })
+  },
+  prospectcheckbox(e){
+    let prospectCount = e.detail.value.length;
+    this.setData({
+      pageInfo: {
+        listradio: true,
+        warning: true
+      },
+      prospectCount: prospectCount
+    })
+  },
+  bulkrefer(){
+    this.setData({
+      checkbox:false,
+      pageInfo:{
+        listradio:true
+      }
+    })
+    wx.hideTabBar({
+      aniamtion:false,
+      success:function(){
+        console.log('tabbar hidden');
+      }
+    })
+  },
+  closeBulkrefer(){
+    let alert = true;
+    if(this.data.prospectCount == 0){
+      alert = false;
     }
     this.setData({
-      zIndexHid: zIndex,
-      mailAnimation: animation.export()
-    });
-  },
-  sectorDetails(e){
-    wx.navigateTo({
-      url: '../sectordetails/sectordetails',
+      pageInfo: {
+        listradio: false,
+        warning: this.data.pageInfo.warning,
+        alert: alert
+      }
     })
   },
-  briefingEvent(e){
-    wx.navigateTo({
-      url: "../brifingdetails/brifingdetails",
+  discard(){
+    this.setData({
+      pageInfo: {
+        listradio: false,
+        warning: false,
+        alert: false
+      }
+    })
+    wx.showTabBar({
+      aniamtion: false,
+      success: function () {
+        console.log('tabbar show');
+      }
     })
   },
-  addprospect(){
-    wx.navigateTo({
-      url: '../prospectinfo/prospectinfo',
+  back(){
+    this.setData({
+      pageInfo: {
+        listradio: true,
+        warning: this.data.pageInfo.warning,
+        alert: false
+      }
     })
+  },
+  clear(){
+    this.setData({
+      prospectCount: 0,
+      checkbox:false,
+      pageInfo:{
+        listradio: true,
+        warning: false,
+        alert: false
+      }
+    })
+  },
+  prospectChange(){
+    console.log('prospectChange');
   }
 })

@@ -49,4 +49,5 @@ page{
   font-size: 18px;
   text-align: center;
   border: 1px solid #000;
+  border-radius: 0px 0px;
 }

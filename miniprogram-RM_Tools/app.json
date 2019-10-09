@@ -14,27 +14,27 @@
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-      "selectedColor": "#CA2A23",
-      "borderStyle": "black",
-      "list": [
+    "selectedColor": "#CA2A23",
+    "borderStyle": "black",
+    "list": [
       {
-          "selectedIconPath": "pictures/babbar/icn_Tasks_active.png",
-          "iconPath": "pictures/babbar/icn_Tasks.png",
-          "pagePath": "pages/rmhome/rmhome",
-          "text": "Task"  
+        "selectedIconPath": "pictures/babbar/icn_Tasks_active.png",
+        "iconPath": "pictures/babbar/icn_Tasks.png",
+        "pagePath": "pages/rmhome/rmhome",
+        "text": "Task"
       },
       {
-          "selectedIconPath": "pictures/babbar/icn_Reports_active.png",
-           "iconPath": "pictures/babbar/icn_Reports.png",
-           "pagePath": "pages/logs/logs",
-           "text": "Report"  
+        "selectedIconPath": "pictures/babbar/icn_Reports_active.png",
+        "iconPath": "pictures/babbar/icn_Reports.png",
+        "pagePath": "pages/logs/logs",
+        "text": "Report"
       },
       {
-           "selectedIconPath": "pictures/babbar/icn_Newspaper_active.png",
-            "iconPath": "pictures/babbar/icn_Newspaper.png",
-            "pagePath": "pages/onborading/onborading",
-            "text": "Market News"  
+        "selectedIconPath": "pictures/babbar/icn_Newspaper_active.png",
+        "iconPath": "pictures/babbar/icn_Newspaper.png",
+        "pagePath": "pages/onborading/onborading",
+        "text": "Market News"
       }
-    ]  
+    ]
   }
 }

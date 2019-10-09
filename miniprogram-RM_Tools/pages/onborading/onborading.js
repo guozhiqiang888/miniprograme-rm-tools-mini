@@ -81,7 +81,7 @@ Page({
   },
   start(e){
     app.languageSwitch(e.target.id);
-    wx.navigateTo({
+    wx.switchTab({
       url: '../rmhome/rmhome',
     })
   },
