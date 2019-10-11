@@ -1,6 +1,6 @@
 <!--pages/login/login.wxml-->
 <view class="img-waper">
-  <image bindtap="onborading" class="img" src="./img/img_welcome.png"></image>
+  <image bindtap="onborading" class="img" src="./img/img_welcome.png" mode="widthFix"></image>
 </view>
 <view class="content-waper">
   <view class="content-wel">

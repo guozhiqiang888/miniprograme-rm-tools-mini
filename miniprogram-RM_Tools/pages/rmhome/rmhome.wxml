@@ -11,15 +11,17 @@
   </view>
 </view>
 
+<!-- <view class="filter-label">Filter by</view> -->
+<view class="filter-waper" wx:if="{{!pageInfo.listradio}}">
+  <view class="items {{filterItemStyle.item1}}" data-items="1" bindtap="filterActions">Active(169)</view>
+  <view class="items {{filterItemStyle.item2}}" data-items="2" bindtap="filterActions">Closed(120)</view>
+  <view class="items {{filterItemStyle.item3}}" data-items="3" bindtap="filterActions">Cold(52)</view>
+</view>
+
 <view class="search-waper">
   <view class="search-box">
-    <input class="search-input" placeholder="Search"></input>
-  </view>
-  <!-- <view class="filter-label">Filter by</view> -->
-  <view class="filter-waper" wx:if="{{!pageInfo.listradio}}">
-    <view class="items {{filterItemStyle.item1}}" data-items="1" bindtap="filterActions">Active(169)</view>
-    <view class="items {{filterItemStyle.item2}}" data-items="2" bindtap="filterActions">Closed(120)</view>
-    <view class="items {{filterItemStyle.item3}}" data-items="3" bindtap="filterActions">Cold(52)</view>
+    <input class="search-input {{isFocus==1 ? 'current':''}}" placeholder="Search" bindfocus="ifFocus" bindblur="ifBlur"></input>
+    <span class="{{isFocus==1 ? 'current':''}}">Cancel</span>
   </view>
 </view>
   <checkbox-group bindchange="prospectcheckbox">

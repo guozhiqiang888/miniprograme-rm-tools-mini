@@ -37,16 +37,18 @@ page{
   margin-right: 10px;
 }
 .search-waper{
-  width: 92%;
+  /* width: 92%; */
   padding: 16px 16px 0px;
   background-color: #fff;
 }
 .search-box{
   width: 100%;
   height: 44px;
-  background-color: #EDEDED;
+  display: flex;
 }
 .search-input{
+  flex: 1;
+  position: relative;
   height: 44px;
   padding-left: 30px;
   padding-right: 30px;
@@ -59,7 +61,28 @@ page{
   background-size: 16px 16px;
   background-position-x: 8px;
   background-position-y: 14px;
+  background-color: #EDEDED;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAAGWB6gOAAAAAXNSR0IArs4c6QAABP9JREFUWAnFl99rHUUUx3M3TQgYtQiVhIjGK/4BJT8gAW2aQrHVCDZGfJXWJ99MQVEq8Tdi9UHQp/qkKBprQYKlmNR4Awbygz6ITzZJIybpD5RI0ii5JtfPd7uzzO7O3rvxVjqwd2bOj++cOefMmbk1NUFra2v7xYzdfUUJBEpO1ZDBoDAwMFDrS3V0dOwz4jBeNGO/91VCvQgrPmlvb//cxhI/osmkEFcycyPo5fP5/Ybo6BdF2zU8PLylAVqDdCc1pi3Nzs7eQ3+fJjc2x6Czs/Ohpqamn1taWnYvLy+PihlpZm1DZH6xVCrlzDy6i5Aa2x3b/8riOYcesAtOjkX0GB+35uEQu86ZicdWcywZ2U1XV9dduVzuihEKd2Dv8HbaxsbGXu1wenq6EAoZLbuX7yQYESLIR7a3t09LkOVOI/Ajw2a+Y3y7+UwkGDqaAGRST0/PLgc7QkJuzDY/ZMo0JyOUSA5Y+EBcx9va2voWUSVS5objxuLCHr74COKJOKPc3OUCb2Zm5gWUrmPqxXLKhqe4r62tFRsaGu4wNPW+c3UmFEKSZRuaItkL7XsJqMmC9fX1b5A5VCwWPxFtc3NzL114WiPhl0DWpiDh34LnefsqJlsWUAOYsEjlbGFh4S22cQSgJr4LtbW1L09NTU2UA44A4fDfEG7hW+U7xbdCVLsB7Wdcwzb62cbXGjubHK0EKxc51chA5gsniIgIbMePt0tY0RMYsk8m+DAGxUwwUgiA9LjkVZFO4swDKXoJMgk8LqK2ajMFVENEztvEDOMz+DVyrHygDIoREaKnOtVtEyvWH1vYjCl+yq+wzoruW+Q6zUYppT+GVZ/aPAFd04G0iRnGd7a2tg7Zch6F/l4cd0jlwWakjQn/HLwlc7saOW98fPxvJq9TFn6vBKakZdF8cBUbDL8PzxpJ9hqUE5yts42NjY+zwD9GkhPeS8lQeVXibogOWKN600IgEXB6A9XvV4Z7jIDVD6L8vuYsuq4+DibajpvADOCOleMKNlhka3HBLHOB4dczZYECnz0HoG4al99ca12D+A5p9WGQES6ZVFrCIBVL0uVVNMLDrYyA/i6LTNhZYaPqlPGCeZhjeFz5bXicpDcoLq+AkankRQzCbX5KCgyAsbq6uqcmJyf/MOA76XVGuEq/xDhTMt8m616qhOEbFIRGF7/uobn6+vrO/2pIfMHAsGkMy8NbAvtBsP+Ky5l5Trfq/Pz8CoQ9Cg2F/bBh3swe7+tpe5Dval9fX/PQ0JAeK4nm6YqHqoRdVeVISNwkAvn3KFB/8t09MjLyXhqsXvR6b6idSkvYG+zqfgNsPUnUUjfuwdTlpKaw/a+NE3c5WECvfmeTQRfEIX8iV69TukoiJcGs8VMalKdnoZiErp/E258mWC1d/zbAeCLAeTMNzwveqOZP3/n4sylNcSd0ve3wzqh0iMTznOTv0vTDwogh+qen/7Xo5MY4cY9Um+Sq3lzXOu69fCVy6CBvat+wigZJgLDlMOwz+qcDhTlAjgLyQxqAiy4vs7mP4T1g8a+DdVj/VSxaYhh6KM4JPPYBdFVv01bxnp5FlyCYU9kM7X5oyhH79KyQn8+QEueC/zpn4d/GV9awVINQDJuq+eLiYje7foyFu2DoT7vKhcJ7lX4Z+gQeGEWmwJ1VhJZoWQzLZFACuUpCOcNuiUFmPy7DbqlBtmGE+lnCfvRfkPoeFf7a/N0AAAAASUVORK5CYII=)
+}
+.search-input.current:after{
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 16px;
+  right: 9px;
+  top: 50%;
+  margin-top: -8px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAAGWB6gOAAAAAXNSR0IArs4c6QAABPtJREFUWAmtmEuIXEUUhtMPZ1z0iBhwtAcUBCOauJrpeYHSalwJaSFmJQguouBOiBiTMWNEjY9IVm4EFURXScAIggs1g+K8Z6VRk9m4MTGCIvYQnUen/f6aW5e6dWtu30nmQPc5deo/f5176nGre9u2SAYGBn6xdkEGjvPtdnuH7IWFhYJx9vf3N2lX5JSU9VUoFN4FOS6U2rEMDQ31xw1rQPGJ7KK+aLRRT8ouRg3ZRmwaeyA/Y50JnRjOD7fpmBz9TpdGfSabyNnldjr2gXi4er1+Y7PZ/JdOpX4Hn2N2uBikSIr4BOpDnmA7gFX5JDHIz4taNubn5z8XyM1J7VjcehSDRY6gtq9IhOYtKK1Wq0cdJqeRkZFbVlZW/vSQi+R1F3mVTU4C2MeNgIu0dzDKiZhJBk+3QuT3mEf5fAXgbYCH1JcSvxQCxHVy0bAUKOxV1+fYmonUCCkizQxEJ53AoOk9Z3pS8pCEmE0lNUGh5w4FuD43zhDNzMwsOIBPHTvTXFtbexTAFYFKFtnX17erWq1+wLPX0N34H7B9vlZ9RkdHb2UVfYlt9k6i2KTayyi/sw5Os4K0HVIiguXl5ctgzoHZZQEJIuuUpma3A/6Y4u9WG/sy9gkyeEttX4JEnQqvR8tFJBBkN6A+4tMgm9/QYzzKKXRQUsxCQfIG6qVQBGRFiHVcJiRFxMre+MSMQkOPljpuKGj42HXGjw44x5NxbiVQ6cbrviuVkQ8ItcnavLPcPkOk6bYHotvZyXbjrimj0AAxkT19QyDfx/THpziPaWxLdAXHsB+wURusecOof3Z29oK0JTrCKK/JgSyuq8zvp/XKcBGGiAWmO0FJOxs7NSNuALbO7FXkVwaPt4zNSNjjOh5kRCs3lRmBDfoOsSBfYeAetss+4SWJLQLgRwA7u7u7eycnJ/9YhyS/wZwCs7dcLt/GyWoGThHJYTcso7cIGENPo6vo/eg6kNWenp6bJiYm/hPeSiIj65SG8EWCnye4V21svTWf4tEuqb1pcVdvVnAwIwVnBUWTkYAEiRIIr0GxdV4dx3231+U3dQ05wMzGi9cHhNq5E7KTGSLJ4QveO0JxHRMiEb1LzvHpVJEQv+vTPtnJNMU3T7fT2u5Gsz5f68V2vcmIUxziypQ8CTUyGTbX2ZErT0KVzY2Zie7IZX7UiEJvNK5X87I5rga8i6DcWyobjZenQluaSCcyN6H4bUGl7rGBnCXmxWfb16PhOm/j3THwxWPHCTFF/xAwoQD0fulIDltjC/SY5XDGOKuxrT9OSI5SqfQMioO4Xef8eVk+3V8J7rg7hM0ScYhLmFqtdkRjYLZZr8/KZyV1MLLY7qOcPwDQ3ff03NzcPrSS1C9A3ZUP2uCc+hiJHLYcJHMSrr3EXiWZ+6nOTy5PKiF18uO/vLS09DWBD9JsQ/YqiR0Vqfp1emM36H8cXUNX5ce+iD2H/gx9xp7K2AUSGUePR7hvK5XKI9wZ1tR2JZiQBZDYzfwroZej+bnGQE1I3+nq6npvamrqL4sL6cHBwe1cRZ8j5gVizB8C4L7j8rKHRP4OxciXmZAbNDw8fC9T+Sa+xxgg/q3pYnybZFr4vmBqDk5PT//s94fauRMKBcvH9D2E+ibqf5hpOhvZ16Tik7pTNGtAOzAlVOtOPsZPRXaDC76IWYPvp4IDjtwVohLrowZI8rhCt8NQ3P9XGBCZOaKe0AAAAABJRU5ErkJggg==) no-repeat 0 0 / 100% 100%;
+}
+.search-box span{
+  display: none;
+  font-size: 16px;
+  padding-left: 16px;
+  height: 100%;
+  align-items: center;
+}
+.search-box span.current{
+  display: flex;
 }
 .filter-label{
   width: 100%;
@@ -71,32 +94,32 @@ page{
   width: 100%;
   height: 40px;
   display: flex;
-  line-height: 40px;
   font-size: 12px;
-  justify-content: space-between;
-  align-items: center;
+  border-bottom: 1px solid #EDEDED;
 }
 .items{
-  width: 33%;
-  height: 90%;
-  text-align: center;
+  display: flex;
+  flex: 1;
+  height: 100%;
+  align-items: center;
   justify-content: center;
-  border-bottom: 1px solid #EDEDED;
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
   color: #333333;	
   font-family: "SF Pro Text";	
   font-size: 14px;	
   font-weight: 300;	
   letter-spacing: -0.15px;	
+  box-sizing: border-box;
 }
-.item-last{
+/* .item-last{
   width: 40%;
   height: 100%;
   display: flex;
   align-items: center;
-}
+} */
 .item-active{
   /* background-color: #DB0011; */
-  border-bottom: 2px solid #DB0011;
+  border-color: #DB0011;
   /* color: #fff; */
 }
 .item-last-title{
@@ -108,7 +131,7 @@ page{
   height: 15px;
 }
 .content-wapper{
-  width: 92%;
+  /* width: 92%; */
   padding: 16px 16px;
   display: flex;
   justify-content: space-between;
@@ -121,12 +144,13 @@ page{
   color: #fff;
   white-space: normal;
   text-overflow: ellipsis;
-  border-radius: 2px;		
-  text-align: center;
+  border-radius: 2px;
   background-color: #A8000B;
 	font-family: "SF Pro Text";	
-  font-size: 12px;	
-  line-height: 16px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content{
@@ -144,8 +168,10 @@ page{
 }
 .com-name{
   width: 100%;
+  height: 18px;
   display: flex;
-  padding-bottom: 5px;
+  align-items: center;
+  margin-bottom: 5px;
   color: #333333;	
   font-family: "SF Pro Text";	
   font-size: 16px;	
@@ -158,6 +184,7 @@ page{
   border-radius: 10px;
   margin-left: 4px;
   background-color: #A8000B;
+  align-self: flex-start;
 }
 .item-status{
   width: 100%;

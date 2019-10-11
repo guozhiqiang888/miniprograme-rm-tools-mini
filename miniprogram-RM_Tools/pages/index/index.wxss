@@ -12,19 +12,15 @@ page{
 }
 .img{
   width: 100%;
-  height: 268px; 
 }
 .content-waper{
-  width: 100%;
   height: 60%;
-  padding: 0px 20px;
+  padding: 0px 16px;
 }
 .content-wel{
-  width: 90%;
   height: 60%;
 }
 .content-btn{
-  width: 90%;
   height: 40%;
   padding-top: 10px;
 }
@@ -63,11 +59,13 @@ page{
   background-color: #fff;
   margin-top: 10px;
   /* font-size: 18px; */
-  text-align: center;
   border: 1px solid #262626;
   border-radius: 0px 0px;
   color: #333333;		
   font-size: 16px;	
   font-weight: 500;	
   letter-spacing: -0.32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

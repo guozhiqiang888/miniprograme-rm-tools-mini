@@ -18,7 +18,8 @@ Page({
       item1:"item-active",
       item2:"",
       item3:""
-    }
+    },
+    isFocus:0
   },
   /**
    * 生命周期函数--监听页面加载
@@ -258,5 +259,17 @@ Page({
   },
   prospectChange(){
     console.log('prospectChange');
-  }
+  },
+  ifFocus: function () {
+    var that = this;
+    that.setData({
+      isFocus: 1
+    })
+  },
+  ifBlur: function () {
+    var that = this;
+    that.setData({
+      isFocus: 0
+    })
+  },
 })
