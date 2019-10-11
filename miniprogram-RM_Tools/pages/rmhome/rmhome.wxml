@@ -39,7 +39,7 @@
         <view class="item-date">Chen Cheng</view>
         </view>
     </view>
-    <view class="icon-right" wx:if="{{!pageInfo.listradio}}"></view>
+    <view class="icon-right" bindtap="goDetail" wx:if="{{!pageInfo.listradio}}"></view>
     <view wx:if="{{pageInfo.listradio}}" style="display:flex; align-items:center;">
     <checkbox class="radio-new-bulk" value="1" checked="{{checkbox}}"></checkbox></view>
   </view>
@@ -57,7 +57,7 @@
         <view class="item-date">Chen Cheng</view>
         </view>
     </view>
-    <view class="icon-right" wx:if="{{!pageInfo.listradio}}"></view>
+    <view class="icon-right" bindtap="goDetail" wx:if="{{!pageInfo.listradio}}"></view>
     <view wx:if="{{pageInfo.listradio}}" style="display:flex; align-items:center;">
     <checkbox class="radio-new-bulk" value="2" checked="{{checkbox}}"></checkbox></view>
   </view>
@@ -75,7 +75,7 @@
         <view class="item-date">Chen Cheng</view>
         </view>
     </view>
-    <view class="icon-right" wx:if="{{!pageInfo.listradio}}"></view>
+    <view class="icon-right" bindtap="goDetail" wx:if="{{!pageInfo.listradio}}"></view>
     <view wx:if="{{pageInfo.listradio}}" style="display:flex; align-items:center;">
     <checkbox class="radio-new-bulk" value="2" checked="{{checkbox}}"></checkbox></view>
   </view>
@@ -93,7 +93,7 @@
         <view class="item-date">Chen Cheng</view>
         </view>
     </view>
-    <view class="icon-right" wx:if="{{!pageInfo.listradio}}"></view>
+    <view class="icon-right" bindtap="goDetail" wx:if="{{!pageInfo.listradio}}"></view>
     <view wx:if="{{pageInfo.listradio}}" style="display:flex; align-items:center;">
     <checkbox class="radio-new-bulk" value="2" checked="{{checkbox}}"></checkbox></view>
   </view>
@@ -111,7 +111,7 @@
         <view class="item-date">Chen Cheng</view>
         </view>
     </view>
-    <view class="icon-right" wx:if="{{!pageInfo.listradio}}"></view>
+    <view class="icon-right" bindtap="goDetail" wx:if="{{!pageInfo.listradio}}"></view>
     <view wx:if="{{pageInfo.listradio}}" style="display:flex; align-items:center;">
     <checkbox class="radio-new-bulk" value="2" checked="{{checkbox}}"></checkbox></view>
   </view>
@@ -176,5 +176,3 @@
         </view>
     </view>
 </view>
-
-<!-- <web-view src="https://uat-cmb-wechat.services.hsbc.com.cn/prd-wechat-bsl-logon/dist/rmTools/index.html"></web-view> -->

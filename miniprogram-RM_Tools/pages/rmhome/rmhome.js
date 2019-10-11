@@ -221,6 +221,12 @@ Page({
         alert: alert
       }
     })
+    wx.showTabBar({
+      aniamtion: false,
+      success: function () {
+        console.log('tabbar show');
+      }
+    })
   },
   discard(){
     this.setData({
@@ -272,4 +278,9 @@ Page({
       isFocus: 0
     })
   },
+  goDetail() {
+    wx.navigateTo({
+      url: '../prospectDetail/prospectDetail',
+    })
+  }
 })

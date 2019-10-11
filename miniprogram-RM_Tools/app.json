@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/rmhome/rmhome",
-    "pages/onborading/onborading"
+    "pages/onborading/onborading",
+    "pages/prospectDetail/prospectDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
