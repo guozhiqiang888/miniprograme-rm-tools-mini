@@ -34,7 +34,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    // url:'http://www.farben.club:9080/'
+    url:'http://39.98.183.95:9080/'
   },
   languageSwitch: function (language, fun) {
     wx.setStorage({

@@ -19,12 +19,15 @@ Page({
       item2:"",
       item3:""
     },
-    isFocus:0
+    isFocus:0,
+    rmList:[],
+    dateList:[]
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let app = getApp();
     let _this = this;
     const role = "1" //getApp().globalData['role'];
     let pageInfo = {
@@ -64,6 +67,17 @@ Page({
         pageInfo: pageInfo
       });
     });
+    wx.request({
+      url: app.globalData.url + 'demo/prospect/getTest', //仅为示例，并非真实的接口地址
+      data: {},
+      success: function (res) {
+        _this.setData({
+          rmList:res.data.Prospects,
+          dateList: res.data.Prospects[1].DueDate
+        })
+        console.log(res.data.Prospects[1].DueDate);
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -278,9 +292,13 @@ Page({
       isFocus: 0
     })
   },
-  goDetail() {
+  goDetail(e) {
+    let tIndex = e.currentTarget.dataset.index;
+    let that = this;
+    let tid = that.data.rmList[tIndex].ID;
     wx.navigateTo({
-      url: '../prospectDetail/prospectDetail',
+      url: '../prospectDetail/prospectDetail?tid='+tid
+      // url: '../prospectDetail/prospectDetail'
     })
   }
 })

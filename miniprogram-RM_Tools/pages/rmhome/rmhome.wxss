@@ -1,6 +1,6 @@
 /* pages/rmhome/rmhome.wxss */
 /* @import "http://39.98.183.95:9080/demo/style.wxss"; */
-@import "../../resource/css/style.wxss";
+/* @import "../../resource/css/style.wxss"; */
 page{
   width: 100%;
   height: 100%;
@@ -151,6 +151,12 @@ page{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.proity.mid{
+  background-color: #Ffbb33;
+}
+.proity.low{
+  background-color: #00847F;
 }
 
 .content{

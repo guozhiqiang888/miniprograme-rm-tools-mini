@@ -1,7 +1,7 @@
 <!--pages/rmhome/rmhome.wxml-->
 <view class="contentpage">
 <view class="sales-waper">
-  <label class="label-waper">My sales lead </label>
+  <label class="label-waper">My sales leads</label>
   <view class="icon_poson" wx:if="{{!pageInfo.listradio}}">
     <image bindtap="bulkrefer" class="icon-person" src="../../pictures/rmhome/icn_User_staff.png"></image>
     <image bindtap="showCostDetailFun" class="filter-icon" src="../../pictures/rmhome/icn_Filter.png"></image>
@@ -25,13 +25,14 @@
   </view>
 </view>
   <checkbox-group bindchange="prospectcheckbox">
-  <view class="content-wapper">
-    <view class="proity">High</view>
+
+  <view class="content-wapper" wx:for="{{rmList}}" wx:for-item="item" data-index="{{index}}" bindtap="goDetail">
+    <view class="proity {{item.Priority=='Mid' ? 'mid':''}} {{item.Priority=='Low' ? 'low':''}}">{{item.Priority}}</view>
     <view class="content">
-      <view class="com-name">华为技术有限公司 <view class="icon"></view></view>
+      <view class="com-name">{{item.LocalName}} <view class="icon"></view></view>
       <view class="item-status">
         <view class="item-font">Declined by bank</view>
-        <view class="item-date">11 Jul</view>
+        <view class="item-date">{{item.DueDate}}</view>
         <view class="icon-warning"></view>
       </view>
       <view class="item-status">
@@ -39,82 +40,11 @@
         <view class="item-date">Chen Cheng</view>
         </view>
     </view>
-    <view class="icon-right" bindtap="goDetail" wx:if="{{!pageInfo.listradio}}"></view>
-    <view wx:if="{{pageInfo.listradio}}" style="display:flex; align-items:center;">
-    <checkbox class="radio-new-bulk" value="1" checked="{{checkbox}}"></checkbox></view>
-  </view>
-  <view class="content-wapper">
-    <view class="proity">High</view>
-    <view class="content">
-      <view class="com-name">华为技术有限公司 <view class="icon"></view></view>
-      <view class="item-status">
-        <view class="item-font">Declined by bank</view>
-        <view class="item-date">11 Jul</view>
-        <view class="icon-warning"></view>
-      </view>
-      <view class="item-status">
-        <view class="item-font">Responsible RM</view>
-        <view class="item-date">Chen Cheng</view>
-        </view>
-    </view>
-    <view class="icon-right" bindtap="goDetail" wx:if="{{!pageInfo.listradio}}"></view>
+    <view class="icon-right" wx:if="{{!pageInfo.listradio}}"></view>
     <view wx:if="{{pageInfo.listradio}}" style="display:flex; align-items:center;">
     <checkbox class="radio-new-bulk" value="2" checked="{{checkbox}}"></checkbox></view>
   </view>
-  <view class="content-wapper">
-    <view class="proity">High</view>
-    <view class="content">
-      <view class="com-name">华为技术有限公司 <view class="icon"></view></view>
-      <view class="item-status">
-        <view class="item-font">Declined by bank</view>
-        <view class="item-date">11 Jul</view>
-        <view class="icon-warning"></view>
-      </view>
-      <view class="item-status">
-        <view class="item-font">Responsible RM</view>
-        <view class="item-date">Chen Cheng</view>
-        </view>
-    </view>
-    <view class="icon-right" bindtap="goDetail" wx:if="{{!pageInfo.listradio}}"></view>
-    <view wx:if="{{pageInfo.listradio}}" style="display:flex; align-items:center;">
-    <checkbox class="radio-new-bulk" value="2" checked="{{checkbox}}"></checkbox></view>
-  </view>
-  <view class="content-wapper">
-    <view class="proity">High</view>
-    <view class="content">
-      <view class="com-name">华为技术有限公司 <view class="icon"></view></view>
-      <view class="item-status">
-        <view class="item-font">Declined by bank</view>
-        <view class="item-date">11 Jul</view>
-        <view class="icon-warning"></view>
-      </view>
-      <view class="item-status">
-        <view class="item-font">Responsible RM</view>
-        <view class="item-date">Chen Cheng</view>
-        </view>
-    </view>
-    <view class="icon-right" bindtap="goDetail" wx:if="{{!pageInfo.listradio}}"></view>
-    <view wx:if="{{pageInfo.listradio}}" style="display:flex; align-items:center;">
-    <checkbox class="radio-new-bulk" value="2" checked="{{checkbox}}"></checkbox></view>
-  </view>
-  <view class="content-wapper">
-    <view class="proity">High</view>
-    <view class="content">
-      <view class="com-name">华为技术有限公司 <view class="icon"></view></view>
-      <view class="item-status">
-        <view class="item-font">Declined by bank</view>
-        <view class="item-date">11 Jul</view>
-        <view class="icon-warning"></view>
-      </view>
-      <view class="item-status">
-        <view class="item-font">Responsible RM</view>
-        <view class="item-date">Chen Cheng</view>
-        </view>
-    </view>
-    <view class="icon-right" bindtap="goDetail" wx:if="{{!pageInfo.listradio}}"></view>
-    <view wx:if="{{pageInfo.listradio}}" style="display:flex; align-items:center;">
-    <checkbox class="radio-new-bulk" value="2" checked="{{checkbox}}"></checkbox></view>
-  </view>
+  
   </checkbox-group>
 </view>
 
