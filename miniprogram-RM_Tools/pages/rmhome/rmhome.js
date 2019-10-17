@@ -85,11 +85,12 @@ Page({
           let dueDate = list[i]['DueDate'];
           let day = dueDate.split('-')[2];
           let month = _this.data.configs[dueDate.split('-')[1]];
+          list[i]['DueDate'] = day +' '+ month; 
         }
         _this.setData({
-          activeList:res.data.Prospects,
-          rmList:res.data.Prospects,
-          activeNum: res.data.Prospects.length
+          activeList:list,
+          rmList: list,
+          activeNum: list
         })
         console.log(res.data.Prospects);
       }
