@@ -90,7 +90,7 @@ Page({
         _this.setData({
           activeList:list,
           rmList: list,
-          activeNum: list
+          activeNum: list.length
         })
         console.log(res.data.Prospects);
       }
