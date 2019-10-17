@@ -13,14 +13,14 @@
 
 <!-- <view class="filter-label">Filter by</view> -->
 <view class="filter-waper" wx:if="{{!pageInfo.listradio}}">
-  <view class="items {{filterItemStyle.item1}}" data-items="1" bindtap="filterActions">Active(169)</view>
-  <view class="items {{filterItemStyle.item2}}" data-items="2" bindtap="filterActions">Closed(120)</view>
-  <view class="items {{filterItemStyle.item3}}" data-items="3" bindtap="filterActions">Cold(52)</view>
+  <view class="items {{filterItemStyle.item1}}" data-items="1" bindtap="filterActions">Active({{activeNum}})</view>
+  <view class="items {{filterItemStyle.item2}}" data-items="2" bindtap="filterActions">Closed({{closedNum}})</view>
+  <view class="items {{filterItemStyle.item3}}" data-items="3" bindtap="filterActions">Cold({{coldNum}})</view>
 </view>
 
 <view class="search-waper">
   <view class="search-box">
-    <input class="search-input {{isFocus==1 ? 'current':''}}" placeholder="Search" bindfocus="ifFocus" bindblur="ifBlur"></input>
+    <input class="search-input {{isFocus==1 ? 'current':''}}" placeholder="Search" bindfocus="ifFocus" bindblur="ifBlur" value='{{inputValue}}'><i bindtap="clearInputEvent"></i></input>
     <span class="{{isFocus==1 ? 'current':''}}">Cancel</span>
   </view>
 </view>
@@ -31,13 +31,13 @@
     <view class="content">
       <view class="com-name">{{item.LocalName}} <view class="icon"></view></view>
       <view class="item-status">
-        <view class="item-font">Declined by bank</view>
+        <view class="item-font">{{item.Status}}</view>
         <view class="item-date">{{item.DueDate}}</view>
         <view class="icon-warning"></view>
       </view>
       <view class="item-status">
         <view class="item-font">Responsible RM</view>
-        <view class="item-date">Chen Cheng</view>
+        <view class="item-date">{{item.AssigneeName}}</view>
         </view>
     </view>
     <view class="icon-right" wx:if="{{!pageInfo.listradio}}"></view>

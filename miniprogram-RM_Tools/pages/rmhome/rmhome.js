@@ -20,8 +20,14 @@ Page({
       item3:""
     },
     isFocus:0,
+    activeNum:'',
+    closedNum:'',
+    coldNum:'',
+    activeList:[],
+    closedList:[],
+    coldList:[],
     rmList:[],
-    dateList:[]
+    inputValue: null
   },
   /**
    * 生命周期函数--监听页面加载
@@ -67,15 +73,39 @@ Page({
         pageInfo: pageInfo
       });
     });
+    // 请求activeList接口
     wx.request({
-      url: app.globalData.url + 'demo/prospect/getTest', //仅为示例，并非真实的接口地址
+      url: app.globalData.url + 'demo/prospect/getTest/avtive', //仅为示例，并非真实的接口地址
       data: {},
       success: function (res) {
         _this.setData({
+          activeList:res.data.Prospects,
           rmList:res.data.Prospects,
-          dateList: res.data.Prospects[1].DueDate
+          activeNum: res.data.Prospects.length
         })
-        console.log(res.data.Prospects[1].DueDate);
+        console.log(res.data.Prospects);
+      }
+    }),
+    // 请求closedList接口
+    wx.request({
+      url: app.globalData.url + 'demo/prospect/getTest/closed', //仅为示例，并非真实的接口地址
+      data: {},
+      success: function (res) {
+        _this.setData({
+          closedList: res.data.Prospects,
+          closedNum: res.data.Prospects.length
+        })
+      }
+    }),
+    // 请求coldList接口
+    wx.request({
+      url: app.globalData.url + 'demo/prospect/getTest/cold', //仅为示例，并非真实的接口地址
+      data: {},
+      success: function (res) {
+        _this.setData({
+          coldList: res.data.Prospects,
+          coldNum: res.data.Prospects.length
+        })
       }
     })
   },
@@ -129,8 +159,9 @@ Page({
           filterItemStyle: {
             item1: 'item-active',
             item2: '',
-            item3: '',
-          }
+            item3: ''
+          },
+          rmList: _this.data.activeList
         })
         break;
       case '2':
@@ -138,8 +169,9 @@ Page({
           filterItemStyle: {
             item1: '',
             item2: 'item-active',
-            item3: '',
-          }
+            item3: ''
+          },
+          rmList: _this.data.closedList
         })
         break;
       case '3':
@@ -147,8 +179,9 @@ Page({
           filterItemStyle: {
             item1: '',
             item2: '',
-            item3: 'item-active',
-          }
+            item3: 'item-active'
+          },
+          rmList: _this.data.coldList
         })
         break;
         default:
@@ -157,7 +190,8 @@ Page({
             item1: 'item-active',
             item2: '',
             item3: '',
-          }
+          },
+          rmList: _this.data.activeList
         })
     }
   },
@@ -299,6 +333,11 @@ Page({
     wx.navigateTo({
       url: '../prospectDetail/prospectDetail?tid='+tid
       // url: '../prospectDetail/prospectDetail'
+    })
+  },
+  clearInputEvent: function (res) {
+    this.setData({
+      'inputValue': ''
     })
   }
 })
