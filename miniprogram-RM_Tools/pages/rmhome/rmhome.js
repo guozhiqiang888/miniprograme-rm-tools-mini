@@ -1,10 +1,12 @@
 // pages/rmhome/rmhome.js
+var homeConfigs=require('../data/config.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    configs: homeConfigs.data,
     role:"1",
     checkbox:false,
     prospectCount:0,
@@ -78,6 +80,12 @@ Page({
       url: app.globalData.url + 'demo/prospect/getTest/avtive', //仅为示例，并非真实的接口地址
       data: {},
       success: function (res) {
+        var list = res.data.Prospects;
+        for(var i=0; i<list.length; i++){
+          let dueDate = list[i]['DueDate'];
+          let day = dueDate.split('-')[2];
+          let month = _this.data.configs[dueDate.split('-')[1]];
+        }
         _this.setData({
           activeList:res.data.Prospects,
           rmList:res.data.Prospects,
