@@ -6,4 +6,5 @@
 
 page {
   height: 100%;
+  font-family: 'Bitstream Vera Serif Bold';
 }

@@ -1,6 +1,11 @@
 //app.js
 App({
   onLaunch: function () {
+    wx.loadFontFace({
+      family: 'Bitstream Vera Serif Bold',
+      source: 'url("https://sungd.github.io/Pacifico.ttf")',
+      success: console.log
+    })
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -68,6 +73,38 @@ App({
         let nlsConfig = require('./pages/NLS/nls_en.js')
         _this.setData({ nls: nlsConfig.nls });
       }
+    })
+  },
+  getFont:function(){
+    wx.loadFontFace({
+      family: 'PingFang SC',
+      source: 'url("https://www.farben.club:12880/demo/font/PingFangHK-Medium.otf")',
+      success: console.log
+    })
+    wx.loadFontFace({
+      family: "SF Pro Regular",
+      source: 'url("https://www.farben.club:12880/demo/font/sf-pro-text_regular.ttf")',
+      success: console.log
+    })
+    wx.loadFontFace({
+      family: "SF Pro Medium",
+      source: 'url("https://www.farben.club:12880/demo/font/sf-pro-text_medium.woff.ttf")',
+      success: console.log
+    })
+    wx.loadFontFace({
+      family: "SF Pro Light",
+      source: 'url("https://www.farben.club:12880/demo/font/sf-pro-text_light.woff.ttf")',
+      success: console.log
+    })
+    wx.loadFontFace({
+      family: "Hsbc Light",
+      source: 'url("https://www.farben.club:12880/demo/font/UniversNextforHSBC-Light.otf")',
+      success: console.log
+    })
+    wx.loadFontFace({
+      family: "Hsbc Regular",
+      source: 'url("https://www.farben.club:12880/demo/font/UniversNextforHSBC-Regular.otf")',
+      success: console.log
     })
   }
 })

@@ -1,5 +1,5 @@
 <!--pages/onborading/onborading.wxml-->
-<swiper indicator-dots="{{indicatorDots}}"
+<!-- <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" 
   interval="{{interval}}" 
   duration="{{duration}}" 
@@ -22,4 +22,8 @@
       </view>
     </swiper-item>
   </block>
-</swiper>
+</swiper> -->
+<view class="blank">
+  <text>We are working on something \n very interesting!</text>
+  <navigator url="/pages/rmhome/rmhome" open-type="switchTab">Back</navigator>
+</view>

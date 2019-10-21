@@ -9,8 +9,8 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "RMs Tools",
-    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "WeConnect",
+    "navigationBarTextStyle": "black",
     "backgroundColor": "#ffffff"
   },
   "sitemapLocation": "sitemap.json",

@@ -28,7 +28,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const app = getApp();
+    app.getFont();
   },
 
   /**
@@ -79,59 +80,59 @@ Page({
   onShareAppMessage: function () {
 
   },
-  start(e){
-    app.languageSwitch(e.target.id);
-    wx.switchTab({
-      url: '../rmhome/rmhome',
-    })
-  },
-  eventChange(e){
-    var _this=this;
-    switch (e.detail.current) {
-      case 0:
-        _this.setData({
-          msg: {
-            title: "Task Management for prospects",
-            title1: "Submit your prospect status any places, any time",
-            btn: false,
-            skip:true
-          }
-        })
-        console.log(_this.data.msg);
-        break;
-      case 1:
-        _this.setData( {
-          msg:{
-            title: "View details for prospects",
-            title1: "Know your prospects more and deeper",
-            btn: false,
-            skip: true
-          }
-        })
-        console.log(_this.data.msg);
-        break;
-      case 2:
-        _this.setData({
-          msg:{
-            title: "Add a prospect",
-            title1: "Start your new business.",
-            btn: false,
-            skip: true
-          }
-        })
-        console.log(_this.data.msg);
-        break;
-      case 3:
-        _this.setData({
-          msg:{
-            title: "Urgent notification",
-            title1: "Get the first-hand news",
-            btn: true,
-            skip: false
-          }
-        })
-        console.log(_this.data.msg);
-        break;
-    }
-  }
+  // start(e){
+  //   app.languageSwitch(e.target.id);
+  //   wx.switchTab({
+  //     url: '../rmhome/rmhome',
+  //   })
+  // },
+  // eventChange(e){
+  //   var _this=this;
+  //   switch (e.detail.current) {
+  //     case 0:
+  //       _this.setData({
+  //         msg: {
+  //           title: "Task Management for prospects",
+  //           title1: "Submit your prospect status any places, any time",
+  //           btn: false,
+  //           skip:true
+  //         }
+  //       })
+  //       console.log(_this.data.msg);
+  //       break;
+  //     case 1:
+  //       _this.setData( {
+  //         msg:{
+  //           title: "View details for prospects",
+  //           title1: "Know your prospects more and deeper",
+  //           btn: false,
+  //           skip: true
+  //         }
+  //       })
+  //       console.log(_this.data.msg);
+  //       break;
+  //     case 2:
+  //       _this.setData({
+  //         msg:{
+  //           title: "Add a prospect",
+  //           title1: "Start your new business.",
+  //           btn: false,
+  //           skip: true
+  //         }
+  //       })
+  //       console.log(_this.data.msg);
+  //       break;
+  //     case 3:
+  //       _this.setData({
+  //         msg:{
+  //           title: "Urgent notification",
+  //           title1: "Get the first-hand news",
+  //           btn: true,
+  //           skip: false
+  //         }
+  //       })
+  //       console.log(_this.data.msg);
+  //       break;
+  //   }
+  // }
 })

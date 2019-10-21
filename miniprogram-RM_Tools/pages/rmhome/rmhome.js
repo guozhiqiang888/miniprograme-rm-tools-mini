@@ -40,6 +40,7 @@ Page({
     const role = "1" //getApp().globalData['role'];
     let pageInfo = {
     }
+    app.getFont();
     wx.getSystemInfo({
       success: function(res) {
         let clientHeight = res.windowHeight;
@@ -80,19 +81,35 @@ Page({
       url: app.globalData.url + 'demo/prospect/getTest/avtive', //仅为示例，并非真实的接口地址
       data: {},
       success: function (res) {
+        var myDate = new Date().getDate();
+        var myMonth = new Date().getMonth() + 1;
         var list = res.data.Prospects;
         for(var i=0; i<list.length; i++){
           let dueDate = list[i]['DueDate'];
           let day = dueDate.split('-')[2];
+          let monthNum = dueDate.split('-')[1];
           let month = _this.data.configs[dueDate.split('-')[1]];
           list[i]['DueDate'] = day +' '+ month; 
+          if ( myMonth < monthNum) {
+            list[i]['warning'] = 0;
+          }
+          if ( myMonth > monthNum) {
+            list[i]['warning'] = 1;
+          }
+          if ( myMonth == monthNum) {
+            if (myDate > day) {
+              list[i]['warning'] = 1;
+            } else {
+              list[i]['warning'] = 0;
+            }
+          }
         }
         _this.setData({
           activeList:list,
           rmList: list,
           activeNum: list.length
         })
-        console.log(res.data.Prospects);
+        console.log(list);
       }
     }),
     // 请求closedList接口
@@ -100,9 +117,32 @@ Page({
       url: app.globalData.url + 'demo/prospect/getTest/closed', //仅为示例，并非真实的接口地址
       data: {},
       success: function (res) {
+        var myDate = new Date().getDate();
+        var myMonth = new Date().getMonth() + 1;
+        var list = res.data.Prospects;
+        for (var i = 0; i < list.length; i++) {
+          let dueDate = list[i]['DueDate'];
+          let day = dueDate.split('-')[2];
+          let monthNum = dueDate.split('-')[1];
+          let month = _this.data.configs[dueDate.split('-')[1]];
+          list[i]['DueDate'] = day + ' ' + month;
+          // if ( myMonth < monthNum ){
+          //   list[i]['warning'] = 0;
+          // }
+          // if ( myMonth > monthNum ){
+          //   list[i]['warning'] = 1;
+          // }
+          // if ( myMonth == monthNum ){
+          //   if( myDate > day ){
+          //     list[i]['warning'] = 1;
+          //   }else{
+          //     list[i]['warning'] = 0;
+          //   }
+          // }
+        }
         _this.setData({
-          closedList: res.data.Prospects,
-          closedNum: res.data.Prospects.length
+          closedList: list,
+          closedNum: list.length
         })
       }
     }),
@@ -111,9 +151,32 @@ Page({
       url: app.globalData.url + 'demo/prospect/getTest/cold', //仅为示例，并非真实的接口地址
       data: {},
       success: function (res) {
+        var myDate = new Date().getDate();
+        var myMonth = new Date().getMonth() + 1;
+        var list = res.data.Prospects;
+        for (var i = 0; i < list.length; i++) {
+          let dueDate = list[i]['DueDate'];
+          let day = dueDate.split('-')[2];
+          let monthNum = dueDate.split('-')[1];
+          let month = _this.data.configs[dueDate.split('-')[1]];
+          list[i]['DueDate'] = day + ' ' + month;
+          // if (myMonth < monthNum) {
+          //   list[i]['warning'] = 0;
+          // }
+          // if (myMonth > monthNum) {
+          //   list[i]['warning'] = 1;
+          // }
+          // if (myMonth == monthNum) {
+          //   if (myDate > day) {
+          //     list[i]['warning'] = 1;
+          //   } else {
+          //     list[i]['warning'] = 0;
+          //   }
+          // }
+        }
         _this.setData({
-          coldList: res.data.Prospects,
-          coldNum: res.data.Prospects.length
+          coldList: list,
+          coldNum: list.length
         })
       }
     })

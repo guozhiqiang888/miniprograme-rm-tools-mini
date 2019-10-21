@@ -3,8 +3,8 @@
 <view class="sales-waper">
   <label class="label-waper">My sales leads</label>
   <view class="icon_poson" wx:if="{{!pageInfo.listradio}}">
-    <image bindtap="bulkrefer" class="icon-person" src="../../pictures/rmhome/icn_User_staff.png"></image>
     <image bindtap="showCostDetailFun" class="filter-icon" src="../../pictures/rmhome/icn_Filter.png"></image>
+    <image bindtap="bulkrefer" class="icon-person" src="../../pictures/rmhome/icn_more.png"></image>
   </view>
   <view class="icon_poson icon_poson_close" wx:if="{{pageInfo.listradio}}">
     <image bindtap="closeBulkrefer" class="icon-close" src = "../../pictures/rmhome/icn_Close.png"></image>
@@ -29,14 +29,14 @@
   <view class="content-wapper" wx:for="{{rmList}}" wx:for-item="item" data-index="{{index}}" bindtap="goDetail">
     <view class="proity {{item.Priority=='Mid' ? 'mid':''}} {{item.Priority=='Low' ? 'low':''}}">{{item.Priority}}</view>
     <view class="content">
-      <view class="com-name">{{item.LocalName}} <view class="icon"></view></view>
+      <view class="com-name">{{item.LocalName}} <view class="icon {{item.HasViewed==false ? 'current':''}}"></view></view>
       <view class="item-status">
         <view class="item-font">{{item.Status}}</view>
         <view class="item-date">{{item.DueDate}}</view>
-        <view class="icon-warning"></view>
+        <view class="icon-warning {{item.warning==1 ? 'current':''}}"></view>
       </view>
       <view class="item-status">
-        <view class="item-font">Responsible RM</view>
+        <view class="item-font">Assigned RM</view>
         <view class="item-date">{{item.AssigneeName}}</view>
         </view>
     </view>
