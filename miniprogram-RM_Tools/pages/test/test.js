@@ -1,22 +1,16 @@
-// pages/login/login.js
-var nls_label = require('../NLS/nls_zh.js');
-let app = getApp();
+// pages/test/test.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    label_config : nls_label.nls,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const app = getApp();
-    console.log(JSON.stringify(nls_label));
-    app.getFont();
   },
 
   /**
@@ -66,19 +60,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  goToHome(e){
-    app.languageSwitch(e.target.id);
-    // wx.switchTab({
-    //   url: '../rmhome/rmhome',
-    // })
-    wx.navigateTo({
-      url: '../test/test',
-    })
-  },
-  onborading(){
-    wx.navigateTo({
-      url: '../onborading/onborading',
-    })
   }
 })

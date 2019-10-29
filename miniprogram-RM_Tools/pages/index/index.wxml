@@ -1,5 +1,5 @@
 <!--pages/login/login.wxml-->
-<view class="img-waper">
+<!-- <view class="img-waper">
   <image bindtap="onborading" class="img" src="./img/img_welcome.png" mode="widthFix"></image>
 </view>
 <view class="content-waper">
@@ -12,7 +12,6 @@
   <view class="content-btn">
     <button id="zh" class="buttons" type="button" value="中文" bindtap="goToHome">中文</button>
     <button id="en" class="buttons" type="button" value="English" bindtap="goToHome">English</button>
-    <!-- <input id="zh" class="buttons" type="button" value="中文" bindtap="goToHome"></input>
-    <input id="en" class="buttons" type="button" value="English" bindtap="goToHome"></input> -->
   </view>
-</view>
+</view> -->
+<web-view src="https://uat-cmb-wechat.services.hsbc.com.cn/weconnect_front/dist/miniprograms-rm-tools/index.html"></web-view>
