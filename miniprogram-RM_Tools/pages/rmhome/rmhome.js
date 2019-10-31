@@ -40,7 +40,7 @@ Page({
     const role = "1" //getApp().globalData['role'];
     let pageInfo = {
     }
-    app.getFont();
+    // app.getFont();
     wx.getSystemInfo({
       success: function(res) {
         let clientHeight = res.windowHeight;

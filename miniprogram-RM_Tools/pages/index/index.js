@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) {
     const app = getApp();
     console.log(JSON.stringify(nls_label));
-    app.getFont();
+    // app.getFont();
   },
 
   /**

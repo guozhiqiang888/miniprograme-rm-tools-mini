@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // tid:''
-    url: ''
+    path: '',
+    tid:''
   },
 
   /**
@@ -15,10 +15,10 @@ Page({
   onLoad: function (options) {
     let that = this;
     that.setData({
-      // tid: options.tid
-      url: options.weburl
+      path: options.weburl,
+      tid: options.tid
     })
-    console.log(that.data.tid);
+    console.log(options);
   },
 
   /**
