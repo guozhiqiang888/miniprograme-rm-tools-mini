@@ -14,5 +14,5 @@
     <button id="en" class="buttons" type="button" value="English" bindtap="goToHome">English</button>
   </view>
 </view> -->
-<!-- <web-view src="https://uat-cmb-wechat.services.hsbc.com.cn/weconnect_front/dist/miniprograms-rm-tools/index.html"></web-view> -->
-<web-view src="https://www.farben.club:12880/demo/dist/miniprograms-rm-tools/index.html"></web-view>
+<web-view src="https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/{{path}}"></web-view>
+<!-- <web-view src="https://www.farben.club:12880/demo/dist/miniprograms-rm-tools/index.html"></web-view> -->

@@ -11,6 +11,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.scanCode({
+      onlyFromCamera: true,
+      success(res) {
+        wx.showToast({
+          title: res.result,
+          icon: 'success',
+          duration: 2000
+        })
+      }
+    })
   },
 
   /**

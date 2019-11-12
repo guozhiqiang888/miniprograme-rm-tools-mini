@@ -5,7 +5,7 @@
     "pages/rmhome/rmhome",
     "pages/onborading/onborading",
     "pages/prospectDetail/prospectDetail",
-    "pages/test/test"
+    "pages/scanCode/scanCode"
   ],
   "window": {
     "backgroundTextStyle": "light",

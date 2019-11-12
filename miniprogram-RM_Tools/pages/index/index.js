@@ -1,22 +1,40 @@
 // pages/login/login.js
-var nls_label = require('../NLS/nls_zh.js');
-let app = getApp();
+// var nls_label = require('../NLS/nls_zh.js');
+// let app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    label_config : nls_label.nls,
+    path: '',
+    code:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const app = getApp();
-    console.log(JSON.stringify(nls_label));
-    // app.getFont();
+    let that = this;
+    that.setData({
+      path: options.weburl
+    })
+    wx.login({
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          code: res.code
+        })
+        wx.request({
+          url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/v1/person/wechat/' + that.data.code,
+          method: 'post',
+          data: {},
+          success:function(res){
+            console.log(res);
+          }
+        })
+      }
+    })
   },
 
   /**
