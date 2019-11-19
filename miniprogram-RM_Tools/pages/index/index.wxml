@@ -1,18 +1,5 @@
-<!--pages/login/login.wxml-->
-<!-- <view class="img-waper">
-  <image bindtap="onborading" class="img" src="./img/img_welcome.png" mode="widthFix"></image>
-</view>
-<view class="content-waper">
-  <view class="content-wel">
-    <view class="title">欢迎</view>
-    <view class="title pd-top">Welcome</view>
-    <view class="note-zh note-font">请选择您的语言</view>
-    <view class="note-font">Please select your language</view>
-  </view>
-  <view class="content-btn">
-    <button id="zh" class="buttons" type="button" value="中文" bindtap="goToHome">中文</button>
-    <button id="en" class="buttons" type="button" value="English" bindtap="goToHome">English</button>
-  </view>
-</view> -->
-<web-view src="https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/{{path}}"></web-view>
+<!-- <view class="loading">Loading your accounts</view> -->
+
+<!-- <web-view src="https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/{{path}}?login=true&openId=&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJpZFwiOlwiMTIzMjEzXCIsXCJvcGVuSWRcIjpcIjM0MjQzMjRcIixcInBlcnNvbklkXCI6XCJDRkY3N0NBRDNCRDc0OUZBQTQ2MDM2QUMyQkEzNjZCM1wiLFwic3RhZmZJZFwiOlwiNDMxODU4MzZcIn0iLCJhdWQiOiI0MzE4NTgzNiJ9.aosjuM8wGc2XuwdSeNM9yZ4w0bdhMnT37uJzcnvoc-k"></web-view> -->
 <!-- <web-view src="https://www.farben.club:12880/demo/dist/miniprograms-rm-tools/index.html"></web-view> -->
+<web-view src="{{url}}"></web-view>

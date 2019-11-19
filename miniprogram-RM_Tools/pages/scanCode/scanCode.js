@@ -1,23 +1,69 @@
 // pages/test/test.js
+let app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    otp:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
+
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
-        wx.showToast({
-          title: res.result,
-          icon: 'success',
-          duration: 2000
+        that.setData({
+          otp:res.result
+        })
+
+        wx.request({
+          url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/v1/person/wechat/login',
+          method: 'post',
+          header: {
+            'MessageIdentification': '234234'
+          },
+          data: { 'oneTimePassword': that.data.otp, 'openId': app.globalData.openId},
+          success: function (res) {
+            console.log(res);
+            if( res.data.code == 200 ){
+              wx.reLaunch({
+                url: '../index/index',
+                success: function (e) {
+                  console.log('90090009');
+                  var page = getCurrentPages().pop();
+
+                  page.onLoad();
+                }
+              })
+            }else{
+              wx.showToast({
+                title: 'fail',
+                icon: 'none',
+                duration: 2000,
+                complete:function(){
+                  wx.reLaunch({
+                    url: '../index/index'
+                  })
+                }
+              })
+            }
+          },
+          fail:function(){
+            wx.reLaunch({
+              url: '../index/index'
+            })
+          }
+        })
+      },
+      fail: function () {
+        wx.reLaunch({
+          url: '../index/index'
         })
       }
     })
@@ -27,14 +73,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.hideHomeButton({});
   },
 
   /**

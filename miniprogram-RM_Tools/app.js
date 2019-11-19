@@ -1,11 +1,6 @@
 //app.js
 App({
   onLaunch: function () {
-    wx.loadFontFace({
-      family: 'Bitstream Vera Serif Bold',
-      source: 'url("https://sungd.github.io/Pacifico.ttf")',
-      success: console.log
-    })
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -40,8 +35,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    url:'https://www.farben.club:12880/'
-    // url:'http://39.98.183.95:9080/'
+    url:'https://www.farben.club:12880/',
+    openId:''
   },
   languageSwitch: function (language, fun) {
     wx.setStorage({

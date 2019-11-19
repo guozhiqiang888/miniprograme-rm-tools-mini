@@ -20,22 +20,10 @@
     "borderStyle": "black",
     "list": [
       {
-        "selectedIconPath": "pictures/babbar/icn_Tasks_active.png",
-        "iconPath": "pictures/babbar/icn_Tasks.png",
-        "pagePath": "pages/rmhome/rmhome",
-        "text": "Task"
+        "pagePath": "pages/onborading/onborading"
       },
       {
-        "selectedIconPath": "pictures/babbar/icn_Reports_active.png",
-        "iconPath": "pictures/babbar/icn_Reports.png",
-        "pagePath": "pages/logs/logs",
-        "text": "Report"
-      },
-      {
-        "selectedIconPath": "pictures/babbar/icn_Newspaper_active.png",
-        "iconPath": "pictures/babbar/icn_Newspaper.png",
-        "pagePath": "pages/onborading/onborading",
-        "text": "Market News"
+        "pagePath": "pages/rmhome/rmhome"
       }
     ]
   }

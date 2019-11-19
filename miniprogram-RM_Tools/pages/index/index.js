@@ -1,6 +1,4 @@
-// pages/login/login.js
-// var nls_label = require('../NLS/nls_zh.js');
-// let app = getApp();
+let app = getApp();
 Page({
 
   /**
@@ -8,17 +6,24 @@ Page({
    */
   data: {
     path: '',
-    code:''
+    code:'',
+    url:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // wx.hideTabBar({});
     let that = this;
     that.setData({
-      path: options.weburl
-    })
+      url: ''
+    });
+    if (options != undefined && options.weburl != undefined){
+      that.setData({
+        path: options.weburl,
+      })
+    }
     wx.login({
       success: function (res) {
         console.log(res);
@@ -28,9 +33,18 @@ Page({
         wx.request({
           url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/v1/person/wechat/' + that.data.code,
           method: 'post',
+          header: {
+            'MessageIdentification': '234234'
+          },
           data: {},
           success:function(res){
+            console.log(726378126378216);
             console.log(res);
+            app.globalData.openId = res.data.data.openId;
+            that.setData({
+              url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=' + res.data.data.login + '&openId=' + res.data.data.openId + '&token=' + res.data.data.token + '&isManager=' + res.data.data.isManager + '&internalRole=' + res.data.data.internalRole
+            })
+            console.log(that.data.url);
           }
         })
       }
@@ -84,19 +98,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  goToHome(e){
-    app.languageSwitch(e.target.id);
-    // wx.switchTab({
-    //   url: '../rmhome/rmhome',
-    // })
-    wx.navigateTo({
-      url: '../test/test',
-    })
-  },
-  onborading(){
-    wx.navigateTo({
-      url: '../onborading/onborading',
-    })
   }
 })
