@@ -18,6 +18,7 @@ Page({
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
+        console.log(res.result);
         that.setData({
           otp:res.result
         })
@@ -28,7 +29,7 @@ Page({
           header: {
             'MessageIdentification': '234234'
           },
-          data: { 'oneTimePassword': that.data.otp, 'openId': app.globalData.openId},
+          data: { 'oneTimePassword': that.data.otp, 'openId': decodeURIComponent(app.globalData.openId)},
           success: function (res) {
             console.log(res);
             if( res.data.code == 200 ){
@@ -113,7 +114,15 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: 'WeConnect', 
+      path: '/pages/index/index',
+      imageUrl: '/pictures/share.jpg'
+    }
   }
 })

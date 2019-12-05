@@ -38,13 +38,18 @@ Page({
           },
           data: {},
           success:function(res){
-            console.log(726378126378216);
             console.log(res);
-            app.globalData.openId = res.data.data.openId;
-            that.setData({
-              url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=' + res.data.data.login + '&openId=' + res.data.data.openId + '&token=' + res.data.data.token + '&isManager=' + res.data.data.isManager + '&internalRole=' + res.data.data.internalRole
-            })
-            console.log(that.data.url);
+            if( res.data.code == 200 ){
+              app.globalData.openId = res.data.data.openId;
+              that.setData({
+                url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=' + res.data.data.login + '&openId=' + res.data.data.openId + '&token=' + res.data.data.token + '&isManager=' + res.data.data.isManager + '&internalRole=' + res.data.data.internalRole
+              })
+              console.log(that.data.url);
+            }else{
+              that.setData({
+                url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/home?login=false&openId=&token=&isManager=&internalRole='
+              })
+            }
           }
         })
       }
@@ -96,7 +101,15 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: 'WeConnect', 
+      path: '/pages/index/index',
+      imageUrl:'/pictures/share.jpg'
+    }
   }
 })
