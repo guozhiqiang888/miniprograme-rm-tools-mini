@@ -220,16 +220,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    return {
-      title: 'WeConnect',
-      path: '/pages/index/index',
-      imageUrl: '/pictures/share.jpg'
-    }
+  onShareAppMessage: function () {
   },
   filterActions(event){
     let _this=this;
