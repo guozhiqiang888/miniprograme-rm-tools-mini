@@ -34,7 +34,7 @@ Page({
           url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/v1/person/wechat/' + that.data.code,
           method: 'post',
           header: {
-            'MessageIdentification': '234234'
+            'MessageIdentification': that.getMessageId()
           },
           data: {},
           success:function(res){
@@ -55,7 +55,12 @@ Page({
       }
     })
   },
-
+  getMessageId() {
+    return (this.S4() + "-" + this.S4() + "-" + this.S4() + "-" + this.S4());
+  },
+  S4() {
+    return (((1 + Math.random()) * 0X10000) | 0).toString(16).substr(1);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
