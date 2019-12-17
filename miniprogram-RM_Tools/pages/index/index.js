@@ -47,7 +47,7 @@ Page({
               console.log(that.data.url);
             }else{
               that.setData({
-                url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/home?login=false&openId=&token=&isManager=&internalRole=&error=' + res.data.code
+                url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=false&openId=&token=&isManager=&internalRole=&error=' + res.data.code
               })
             }
           }
