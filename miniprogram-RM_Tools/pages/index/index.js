@@ -40,14 +40,21 @@ Page({
           success:function(res){
             console.log(res);
             if( res.data.code == 200 ){
+              let tips = '';
+              let taps = '';
               app.globalData.openId = res.data.data.openId;
+              if ( res.data.data.token && res.data.data.token != null && res.data.data.token != undefined ){
+                let takes = res.data.data.token;
+                tips = takes.substring(0, takes.length / 2);
+                taps = takes.substring((takes.length / 2));
+              }
               that.setData({
-                url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=' + res.data.data.login + '&openId=' + res.data.data.openId + '&token=' + res.data.data.token + '&isManager=' + res.data.data.isManager + '&internalRole=' + res.data.data.internalRole + '&error=200'
+                url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=' + res.data.data.login + '&tag=' + res.data.data.openId + '&tips=' + tips + '&taps=' + taps + '&isManager=' + res.data.data.isManager + '&internalRole=' + res.data.data.internalRole + '&error=200'
               })
               console.log(that.data.url);
             }else{
               that.setData({
-                url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=false&openId=&token=&isManager=&internalRole=&error=' + res.data.code
+                url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=false&tag=&tips=&taps=&isManager=&internalRole=&error=' + res.data.code
               })
             }
           }
