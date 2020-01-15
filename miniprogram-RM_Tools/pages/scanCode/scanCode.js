@@ -24,7 +24,7 @@ Page({
         })
 
         wx.request({
-          url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/v1/person/wechat/login',
+          url: app.globalData.domain + '/weconnect-front/v1/person/wechat/login',
           method: 'post',
           header: {
             'MessageIdentification': that.getMessageId()
@@ -43,15 +43,8 @@ Page({
                 }
               })
             }else{
-              wx.showToast({
-                title: 'fail',
-                icon: 'none',
-                duration: 2000,
-                complete:function(){
-                  wx.reLaunch({
-                    url: '../index/index'
-                  })
-                }
+              wx.reLaunch({
+                url: '../index/index'
               })
             }
           },

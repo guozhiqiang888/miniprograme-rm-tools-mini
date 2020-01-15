@@ -14,7 +14,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.hideTabBar({});
     let that = this;
     that.setData({
       url: ''
@@ -31,7 +30,7 @@ Page({
           code: res.code
         })
         wx.request({
-          url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/v1/person/wechat/' + that.data.code,
+          url: app.globalData.domain + '/weconnect-front/v1/person/wechat/' + that.data.code,
           method: 'post',
           header: {
             'MessageIdentification': that.getMessageId()
@@ -49,12 +48,12 @@ Page({
                 taps = takes.substring((takes.length / 2));
               }
               that.setData({
-                url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=' + res.data.data.login + '&tag=' + res.data.data.openId + '&tips=' + tips + '&taps=' + taps + '&isManager=' + res.data.data.isManager + '&internalRole=' + res.data.data.internalRole + '&error=200'
+                url: app.globalData.domain + '/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=' + res.data.data.login + '&tag=' + res.data.data.openId + '&tips=' + tips + '&taps=' + taps + '&isManager=' + res.data.data.isManager + '&internalRole=' + res.data.data.internalRole + '&error=200'
               })
               console.log(that.data.url);
             }else{
               that.setData({
-                url: 'https://uat-cmb-wechat.services.hsbc.com.cn/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=false&tag=&tips=&taps=&isManager=&internalRole=&error=' + res.data.code
+                url: app.globalData.domain + '/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + that.data.path + '?login=false&tag=&tips=&taps=&isManager=&internalRole=&error=' + res.data.code
               })
             }
           }

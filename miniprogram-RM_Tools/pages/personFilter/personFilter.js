@@ -6,8 +6,8 @@ Page({
    */
   data: {
     path: '',
-    tid:'',
-    domain: app.globalData.domain
+    parameter: '',
+    url: ''
   },
 
   /**
@@ -16,9 +16,19 @@ Page({
   onLoad: function (options) {
     let that = this;
     that.setData({
-      path: options.weburl,
-      tid: options.tid
+      path: options.weburl
     })
+    console.log(options);
+    var index = 0;
+    for (var k in options) {
+      if (index != 0) {
+        that.data.parameter += k + '=' + options[k] + "&";
+      }
+      index++;
+    }
+    that.data.parameter = that.data.parameter.substring(0, that.data.parameter.length - 1);
+    that.data.url = app.globalData.domain + '/weconnect-front/dist/miniprograms-rm-tools/index.html#' + that.data.path + '?' + that.data.parameter;
+    console.log(that.data.url);
   },
 
   /**
@@ -72,7 +82,7 @@ Page({
       console.log(res.target)
     }
     return {
-      title: 'WeConnect', 
+      title: 'WeConnect',
       path: '/pages/index/index',
       imageUrl: '/pictures/share.jpg'
     }
