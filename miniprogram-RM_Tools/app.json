@@ -1,9 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/rmhome/rmhome",
-    "pages/onborading/onborading",
     "pages/prospectDetail/prospectDetail",
     "pages/scanCode/scanCode"
   ],
@@ -14,17 +11,5 @@
     "navigationBarTextStyle": "black",
     "backgroundColor": "#ffffff"
   },
-  "sitemapLocation": "sitemap.json",
-  "tabBar": {
-    "selectedColor": "#CA2A23",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/onborading/onborading"
-      },
-      {
-        "pagePath": "pages/rmhome/rmhome"
-      }
-    ]
-  }
+  "sitemapLocation": "sitemap.json"
 }
