@@ -1,8 +1,12 @@
 {
   "pages": [
+    "pages/blank/blank",
+    "pages/authorization/authorization",
     "pages/index/index",
     "pages/prospectDetail/prospectDetail",
-    "pages/scanCode/scanCode"
+    "pages/personFilter/personFilter",
+    "pages/scanCode/scanCode",
+    "pages/error/error"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,6 +14,22 @@
     "navigationBarTitleText": "WeConnect",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#ffffff"
+  },
+  "tabBar": { 
+    "color": "white",
+    "selectedColor": "white",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index"
+      },
+      {
+        "pagePath": "pages/authorization/authorization"
+      },
+      {
+        "pagePath": "pages/error/error"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

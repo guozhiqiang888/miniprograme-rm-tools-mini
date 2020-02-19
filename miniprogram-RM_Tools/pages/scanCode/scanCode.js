@@ -14,6 +14,9 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    if (options != undefined && options.local != undefined) {
+      app.globalData.local = options.local;
+    }
 
     wx.scanCode({
       onlyFromCamera: true,
@@ -34,7 +37,7 @@ Page({
             console.log(res);
             if( res.data.code == 200 ){
               wx.reLaunch({
-                url: '../index/index',
+                url: '../blank/blank',
                 success: function (e) {
                   console.log('90090009');
                   var page = getCurrentPages().pop();
@@ -44,20 +47,20 @@ Page({
               })
             }else{
               wx.reLaunch({
-                url: '../index/index'
+                url: '../blank/blank'
               })
             }
           },
           fail:function(){
             wx.reLaunch({
-              url: '../index/index'
+              url: '../blank/blank'
             })
           }
         })
       },
       fail: function () {
         wx.reLaunch({
-          url: '../index/index'
+          url: '../blank/blank'
         })
       }
     })
@@ -119,7 +122,7 @@ Page({
     }
     return {
       title: 'WeConnect', 
-      path: '/pages/index/index',
+      path: '/pages/blank/blank',
       imageUrl: '/pictures/share.jpg'
     }
   }

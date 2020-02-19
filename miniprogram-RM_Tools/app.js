@@ -5,6 +5,12 @@ App({
   globalData: {
     // domain: 'https://cmb.wechat.hsbcnet.com',
     domain:'https://uat-cmb-wechat.services.hsbc.com.cn',
-    openId:''
+    openId:'',
+    takes:'',
+    path:'',
+    login:'',
+    internalRole:'',
+    isManager:'',
+    local:''
   }
 })
