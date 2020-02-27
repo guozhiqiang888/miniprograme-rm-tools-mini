@@ -11,6 +11,8 @@ App({
     login:'',
     internalRole:'',
     isManager:'',
-    local:''
+    local:'',
+    start:'',
+    end:''
   }
 })

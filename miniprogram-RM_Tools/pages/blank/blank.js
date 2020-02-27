@@ -20,6 +20,8 @@ Page({
     let that = this;
     if (options != undefined && options.weburl != undefined) {
       app.globalData.path = options.weburl;
+      app.globalData.start = options['start']?options['start']:'',
+      app.globalData.end = options['end']? options['end']:''
     }
     wx.login({
       success: function (res) {
