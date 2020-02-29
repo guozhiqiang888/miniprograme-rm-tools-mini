@@ -1,6 +1,7 @@
 <view>
   <icon type="warn" size="48" color="#Ffbb33"/>
   <header>Authorize failed</header>
-  <text>WeChat phone number doesn’t match your account. Please make sure you are using registered number or contact your technical support</text>
+  <!-- <text>WeChat phone number doesn’t match your account. Please make sure you are using registered number or contact your technical support</text> -->
+  <text>It seems you do not have access to WeConnect yet</text>
   <navigator url="/pages/authorization/authorization" open-type="switchTab" hover-class="none">Back</navigator>
 </view>

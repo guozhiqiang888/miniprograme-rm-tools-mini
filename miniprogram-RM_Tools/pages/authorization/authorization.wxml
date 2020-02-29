@@ -1,7 +1,8 @@
 <view>
   <icon type="info" size="93"/>
   <header>Phone authorization</header>
-  <text>This is an HSBC internal app, it requires to confirm the phone number associate WeChat account in order to process. If you choose cancel, you will decline the access.</text>
+  <!-- <text>This is an HSBC internal app, it requires to confirm the phone number associate WeChat account in order to process. If you choose cancel, you will decline the access.</text> -->
+  <text>This is a step that allows the mini-programe to verify the WeChat mobile number you've provided to the WeConnect team. Please click "Continue" to gain access to WeConnect</text>
   <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hover-class="none">Continue</button>
   <navigator target="miniProgram" open-type="exit" hover-class="none">Cancel</navigator>
 </view>
