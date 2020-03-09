@@ -61,6 +61,11 @@ Page({
             }
           }
         })
+      },
+      fail: function(res){
+        wx.navigateTo({
+          url: '../error/error'
+        })
       }
     })
   },
