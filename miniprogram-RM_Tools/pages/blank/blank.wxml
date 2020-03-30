@@ -1,7 +1,2 @@
-<view class="loading-waper">
-    <view class="loading-content">
-        <image mode="widthFix" src="/pictures/spinner.png" class="loading"></image>
-        <view style="margin-top: 6px;">Loading your accounts</view> 
-    </view>
-</view>
-    
+<web-view src="{{url}}"></web-view>
+

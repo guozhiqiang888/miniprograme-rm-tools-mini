@@ -16,44 +16,65 @@ Page({
   },
   getPhoneNumber(e) {
     let that = this;
-    console.log(e);
+    console.error('get phoneNum'+e);
     wx.checkSession({
 　　　　success: function () {
 　　　　　　console.log("处于登录态");
           that.checkWhitelist(e);
 　　　　},
 　　　　fail: function () {
+          console.error('checking fail');
 　　　　　　wx.login({
             success: function (res) {
               console.log(res);
-              wx.request({
-                url: app.globalData.domain + '/weconnect-front/v1/person/wechat/' + res.code,
-                method: 'post',
-                header: {
-                  'MessageIdentification': that.getMessageId()
-                },
-                data: {},
-                success: function (res) {
-                  console.log(res);
-                  if (res.data.code == 200) {
-                    app.globalData.openId = res.data.data.openId;
-                    app.globalData.login = res.data.data.login;
-                    if (res.data.data.token && res.data.data.token != null && res.data.data.token != undefined) {
-                      app.globalData.takes = res.data.data.token;
-                    }
-                    if (res.data.data.internalRole && res.data.data.internalRole != null && res.data.data.internalRole != undefined) {
-                      app.globalData.internalRole = res.data.data.internalRole;
-                    }
-                    if (res.data.data.isManager && res.data.data.isManager != null && res.data.data.isManager != undefined) {
-                      app.globalData.isManager = res.data.data.isManager;
-                    }
-                    that.checkWhitelist(e);
-                  }
-                }
-              })
+              console.error('login success');
+              that.getOpenIdFunction(res.code, 1);
+            }
+            ,
+            fail:function(){
+              wx.switchTab({
+                url: '../error/error'
+              });
             }
           })
 　　　　}
+    })
+  },
+  getOpenIdFunction(code, callNum){
+    var that = this;
+    wx.request({
+      url: app.globalData.domain + '/weconnect-front/v1/person/wechat/' + code,
+      method: 'post',
+      header: {
+        'MessageIdentification': that.getMessageId()
+      },
+      data: {},
+      success: function (res) {
+        console.log(res);
+        if (res.data.code == 200) {
+          app.globalData.openId = res.data.data.openId;
+          app.globalData.login = res.data.data.login;
+          if (res.data.data.token && res.data.data.token != null && res.data.data.token != undefined) {
+            app.globalData.takes = res.data.data.token;
+          }
+          if (res.data.data.internalRole && res.data.data.internalRole != null && res.data.data.internalRole != undefined) {
+            app.globalData.internalRole = res.data.data.internalRole;
+          }
+          if (res.data.data.isManager && res.data.data.isManager != null && res.data.data.isManager != undefined) {
+            app.globalData.isManager = res.data.data.isManager;
+          }
+          that.checkWhitelist(e);
+        }
+      },
+      fail: function (res) {
+        if(1 == callNum){
+          that.getOpenIdFunction(res.code, 2);
+        }else{
+          wx.switchTab({
+            url: '../errorinternet/errorinternet'
+          });
+        }
+      }
     })
   },
   checkWhitelist(e){
@@ -75,7 +96,7 @@ Page({
         if (res.data.code == 200) {
           if (res.data.data == true) {
             wx.switchTab({
-              url: '../index/index'
+              url: '../blank/blank'
             });
           }
           if (res.data.data == false) {
@@ -83,7 +104,17 @@ Page({
               url: '../error/error'
             });
           }
+        }else{
+          wx.switchTab({
+            url: '../error/error'
+          })
         }
+      },
+      fail: function(res){
+        wx.switchTab({
+          url: '../error/error'
+        })
+        // console.log('@@@' + JSON.stringify(res));
       }
     })
   },

@@ -1,16 +1,29 @@
-page{
+ page{
   display: flex;
   align-items: center;
   padding: 0 20px;
   box-sizing: border-box;
 }
+.view-content{
+  width: 100%;
+}
+.button{
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  border-radius: 0 0;
+  border: 1px solid #262626;
+  background-color: #fff;
+  margin: 30px 0 15vh 0;
+
+}
 icon{
   display: block;
   width: 48px;
   margin: 0 auto;
-}
-.view-content{
-  width: 100%;
 }
 header{
   display: block;

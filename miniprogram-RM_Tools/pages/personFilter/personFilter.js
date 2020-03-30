@@ -85,7 +85,7 @@ Page({
     }
     return {
       title: 'WeConnect',
-      path: '/pages/index/index',
+      path: '/pages/blank/blank',
       imageUrl: '/pictures/share.jpg'
     }
   }

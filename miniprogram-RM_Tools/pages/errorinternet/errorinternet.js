@@ -14,6 +14,18 @@ Page({
   onLoad: function (options) {
     wx.hideTabBar();
   },
+  retry:function(){
+    console.log('relanch');
+    wx.reLaunch({
+      url: '../index/index',
+      success: (result) => {
+        
+      },
+      fail: () => {},
+      complete: () => {}
+    });
+      
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

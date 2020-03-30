@@ -1,4 +1,3 @@
-// pages/blank/blank.js
 let app = getApp();
 Page({
 
@@ -6,74 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    path: '',
+    code:'',
+    url:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.globalData.path = '';
-    app.globalData.takes = '';
-    app.globalData.internalRole = '';
-    app.globalData.isManager = '';
+    wx.hideTabBar();
     let that = this;
-    if (options != undefined && options.weburl != undefined) {
-      app.globalData.path = options.weburl;
-      app.globalData.start = options['start']?options['start']:'',
-      app.globalData.end = options['end']? options['end']:''
+    let tips = '';
+    let taps = '';
+    that.setData({
+      url: ''
+    });
+    if (app.globalData.takes && app.globalData.takes != null && app.globalData.takes != undefined) {
+      let takes = app.globalData.takes;
+      tips = takes.substring(0, takes.length / 2);
+      taps = takes.substring((takes.length / 2));
     }
-    wx.login({
-      success: function (res) {
-        console.log(res);
-        wx.request({
-          url: app.globalData.domain + '/weconnect-front/v1/person/wechat/' + res.code,
-          method: 'post',
-          header: {
-            'MessageIdentification': that.getMessageId()
-          },
-          data: {},
-          success: function (res) {
-            console.log(res);
-            if (res.data.code == 200) {
-              console.log(res.data.data.openId);
-              app.globalData.openId = res.data.data.openId;
-              app.globalData.login = res.data.data.login;
-              if (res.data.data.token && res.data.data.token != null && res.data.data.token != undefined) {
-                app.globalData.takes = res.data.data.token;
-              }
-              if (res.data.data.internalRole && res.data.data.internalRole != null && res.data.data.internalRole != undefined) {
-                app.globalData.internalRole = res.data.data.internalRole;
-              }
-              if (res.data.data.isManager && res.data.data.isManager != null && res.data.data.isManager != undefined) {
-                app.globalData.isManager = res.data.data.isManager;
-              }
-              if (res.data.data.isPhoneAuthorized == true) {
-                wx.switchTab({
-                  url: '../index/index'
-                });
-              } else {
-                wx.switchTab({
-                  url: '../authorization/authorization'
-                });
-              }
-            } else {
-            }
-          }
-        })
-      },
-      fail: function(res){
-        wx.navigateTo({
-          url: '../error/error'
-        })
-      }
+    that.setData({
+      url: app.globalData.domain + '/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + app.globalData.path + '?login=' + app.globalData.login + '&tag=' + app.globalData.openId + '&tips=' + tips + '&taps=' + taps + '&isManager=' + app.globalData.isManager + '&internalRole=' + app.globalData.internalRole +'&start='+ app.globalData.start+ '&end='+ app.globalData.end +'&local=' + app.globalData.local + '&error=200'
     })
-  },
-  getMessageId() {
-    return (this.S4() + "-" + this.S4() + "-" + this.S4() + "-" + this.S4());
-  },
-  S4() {
-    return (((1 + Math.random()) * 0X10000) | 0).toString(16).substr(1);
+    console.log(that.data.url);
+    app.globalData.local = '';
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -120,7 +77,15 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: 'WeConnect', 
+      path: '/pages/index/index',
+      imageUrl:'/pictures/share.jpg'
+    }
   }
 })

@@ -1,12 +1,14 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/blank/blank",
     "pages/authorization/authorization",
-    "pages/index/index",
     "pages/prospectDetail/prospectDetail",
     "pages/personFilter/personFilter",
     "pages/scanCode/scanCode",
-    "pages/error/error"
+
+    "pages/error/error",
+    "pages/errorinternet/errorinternet"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,26 +17,27 @@
     "navigationBarTextStyle": "black",
     "backgroundColor": "#ffffff"
   },
-  "tabBar": { 
+  "tabBar": {
     "color": "white",
     "selectedColor": "white",
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/index/index"
+        "pagePath": "pages/blank/blank"
       },
       {
         "pagePath": "pages/authorization/authorization"
       },
       {
         "pagePath": "pages/error/error"
+      },
+      {
+        "pagePath": "pages/errorinternet/errorinternet"
       }
     ]
   },
-
   "networkTimeout": {
-    "request": 10000,
-    "downloadFile": 10000
+    "request": 10000
   },
   "sitemapLocation": "sitemap.json"
 }

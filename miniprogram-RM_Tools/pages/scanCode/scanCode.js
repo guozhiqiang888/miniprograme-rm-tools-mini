@@ -37,7 +37,7 @@ Page({
             console.log(res);
             if( res.data.code == 200 ){
               wx.reLaunch({
-                url: '../blank/blank',
+                url: '../index/index',
                 success: function (e) {
                   console.log('90090009');
                   var page = getCurrentPages().pop();
@@ -47,20 +47,20 @@ Page({
               })
             }else{
               wx.reLaunch({
-                url: '../blank/blank'
+                url: '../index/index'
               })
             }
           },
           fail:function(){
             wx.reLaunch({
-              url: '../blank/blank'
+              url: '../index/index'
             })
           }
         })
       },
       fail: function () {
         wx.reLaunch({
-          url: '../blank/blank'
+          url: '../index/index'
         })
       }
     })
@@ -122,7 +122,7 @@ Page({
     }
     return {
       title: 'WeConnect', 
-      path: '/pages/blank/blank',
+      path: '/pages/index/index',
       imageUrl: '/pictures/share.jpg'
     }
   }
