@@ -73,7 +73,7 @@ Page({
     }
     return {
       title: 'WeConnect', 
-      path: '/pages/blank/blank',
+      path: '/pages/navagitor/navagitor',
       imageUrl: '/pictures/share.jpg'
     }
   }

@@ -28,7 +28,7 @@ Page({
         console.log(res);
         var date = new Date();
         var timeSecond= date.getTime();
-        console.error('@@@@@@start' + date.getFullYear() + ':' + date.getHours() +':' +date.getMinutes()+ ':'+ date.getSeconds())
+        // console.error('@@@@@@start' + date.getFullYear() + ':' + date.getHours() +':' +date.getMinutes()+ ':'+ date.getSeconds())
         var times = 1;
         that.getOpenid(res.code , times);
       },
@@ -51,7 +51,7 @@ Page({
       success: function (res) {
         console.log(res);
         var date = new Date();
-        console.error('@@@@@@end' + date.getFullYear() + ':' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds())
+        // console.error('@@@@@@end' + date.getFullYear() + ':' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds())
         // wx.reLaunch({
         //   url: '../index/index',
         // })
@@ -70,7 +70,7 @@ Page({
           }
           if (res.data.data.isPhoneAuthorized == true) {
             wx.switchTab({
-              url: '../blank/blank'
+              url: '../navagitor/navagitor'
             });
           } else {
             wx.switchTab({
@@ -78,9 +78,16 @@ Page({
             });
           }
         } else if (res.data.code == '400-0001'){
-          wx.reLaunch({
-            url: '../index/index',
-          })
+          // wx.reLaunch({
+          //   url: '../index/index',
+          // })
+          wx.switchTab({
+            url: '../errorinternet/errorinternet'
+          });
+        } else if (res.data.code == '400-0002'){
+          wx.switchTab({
+            url: '../errorinternet/errorinternet'
+          });
         }
       },
       fail:function(res){
@@ -88,8 +95,6 @@ Page({
           _this.getOpenid(wecharCode, 2);
         }else{
           var date = new Date();
-          console.error("#" + JSON.stringify(res));
-          console.error('@@@@@@fail' + date.getFullYear() + ':' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds());
           wx.switchTab({
             url: '../errorinternet/errorinternet'
           });

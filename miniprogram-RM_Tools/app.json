@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/blank/blank",
+    "pages/navagitor/navagitor",
     "pages/authorization/authorization",
     "pages/prospectDetail/prospectDetail",
     "pages/personFilter/personFilter",
@@ -23,7 +23,7 @@
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/blank/blank"
+        "pagePath": "pages/navagitor/navagitor"
       },
       {
         "pagePath": "pages/authorization/authorization"

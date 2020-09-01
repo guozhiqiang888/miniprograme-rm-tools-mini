@@ -16,7 +16,7 @@ Page({
   },
   getPhoneNumber(e) {
     let that = this;
-    console.error('get phoneNum'+e);
+    // console.error('get phoneNum'+e);
     wx.checkSession({
 　　　　success: function () {
 　　　　　　console.log("处于登录态");
@@ -27,7 +27,7 @@ Page({
 　　　　　　wx.login({
             success: function (res) {
               console.log(res);
-              console.error('login success');
+              // console.error('login success');
               that.getOpenIdFunction(res.code, 1);
             }
             ,
@@ -96,7 +96,7 @@ Page({
         if (res.data.code == 200) {
           if (res.data.data == true) {
             wx.switchTab({
-              url: '../blank/blank'
+              url: '../navagitor/navagitor'
             });
           }
           if (res.data.data == false) {
