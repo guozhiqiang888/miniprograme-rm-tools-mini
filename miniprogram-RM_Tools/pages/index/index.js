@@ -42,7 +42,7 @@ Page({
   getOpenid(wecharCode, times){
     var _this = this;
     wx.request({
-      url: app.globalData.domain + '/weconnect-front/v1/person/wechat/' + wecharCode,
+      url: app.globalData.domain + app.globalData.contentKey+'/v1/person/wechat/' + wecharCode,
       method: 'post',
       header: {
         'MessageIdentification': _this.getMessageId()

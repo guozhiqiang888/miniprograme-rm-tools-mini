@@ -27,7 +27,7 @@ Page({
       taps = takes.substring((takes.length / 2));
     }
     that.setData({
-      url: app.globalData.domain + '/weconnect-front/dist/miniprograms-rm-tools/index.html#/' + app.globalData.path + '?login=' + app.globalData.login + '&tag=' + app.globalData.openId + '&tips=' + tips + '&taps=' + taps + '&isManager=' + app.globalData.isManager + '&internalRole=' + app.globalData.internalRole +'&start='+ app.globalData.start+ '&end='+ app.globalData.end +'&local=' + app.globalData.local + '&error=200'
+      url: app.globalData.domain + app.globalData.contentKey+'/dist/miniprograms-rm-tools/index.html#/' + app.globalData.path + '?login=' + app.globalData.login + '&tag=' + app.globalData.openId + '&tips=' + tips + '&taps=' + taps + '&isManager=' + app.globalData.isManager + '&internalRole=' + app.globalData.internalRole +'&start='+ app.globalData.start+ '&end='+ app.globalData.end +'&local=' + app.globalData.local + '&error=200'
     })
     console.log(that.data.url);
     app.globalData.local = '';

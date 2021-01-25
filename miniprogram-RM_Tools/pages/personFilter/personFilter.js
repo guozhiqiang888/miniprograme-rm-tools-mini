@@ -28,7 +28,7 @@ Page({
     }
     that.data.parameter = that.data.parameter.substring(0, that.data.parameter.length - 1);
     that.setData({
-      url: app.globalData.domain + '/weconnect-front/dist/miniprograms-rm-tools/index.html#' + that.data.path + '?' + that.data.parameter
+      url: app.globalData.domain + app.globalData.contentKey+'/dist/miniprograms-rm-tools/index.html#' + that.data.path + '?' + that.data.parameter
     });
     console.log(that.data.url);
   },

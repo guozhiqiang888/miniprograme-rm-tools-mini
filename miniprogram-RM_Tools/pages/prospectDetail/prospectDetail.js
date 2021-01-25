@@ -7,7 +7,7 @@ Page({
   data: {
     path: '',
     tid:'',
-    domain: app.globalData.domain
+    domain: app.globalData.domain + app.globalData.contentKey
   },
 
   /**

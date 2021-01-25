@@ -5,6 +5,8 @@ App({
   globalData: {
     // domain: 'https://cmb.wechat.hsbcnet.com',
     domain:'https://uat-cmb-wechat.services.hsbc.com.cn',
+    contentKey:'/sit-weconnect-wechat-frontend',
+    // contentKey:'/weconnect-front',
     openId:'',
     takes:'',
     path:'',

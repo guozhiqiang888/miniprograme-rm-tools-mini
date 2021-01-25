@@ -43,7 +43,7 @@ Page({
   getOpenIdFunction(code, callNum){
     var that = this;
     wx.request({
-      url: app.globalData.domain + '/weconnect-front/v1/person/wechat/' + code,
+      url: app.globalData.domain + app.globalData.contentKey +'/v1/person/wechat/' + code,
       method: 'post',
       header: {
         'MessageIdentification': that.getMessageId()
@@ -78,10 +78,9 @@ Page({
     })
   },
   checkWhitelist(e){
-    console.log(decodeURIComponent(app.globalData.openId));
     let that = this;
     wx.request({
-      url: app.globalData.domain + '/weconnect-front/v1/person/wechat/whitelist',
+      url: app.globalData.domain + app.globalData.contentKey+'/v1/person/wechat/whitelist',
       method: 'post',
       header: {
         'MessageIdentification': that.getMessageId()

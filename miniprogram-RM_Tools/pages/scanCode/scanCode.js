@@ -27,7 +27,7 @@ Page({
         })
 
         wx.request({
-          url: app.globalData.domain + '/weconnect-front/v1/person/wechat/login',
+          url: app.globalData.domain + app.globalData.contentKey+'/v1/person/wechat/login',
           method: 'post',
           header: {
             'MessageIdentification': that.getMessageId()

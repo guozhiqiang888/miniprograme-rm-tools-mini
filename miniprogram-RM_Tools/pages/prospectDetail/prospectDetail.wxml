@@ -1,1 +1,1 @@
-<web-view src="{{domain}}/weconnect-front/dist/miniprograms-rm-tools/index.html#{{path}}?tid={{tid}}"></web-view>
+<web-view src="{{domain}}/dist/miniprograms-rm-tools/index.html#{{path}}?tid={{tid}}"></web-view>
