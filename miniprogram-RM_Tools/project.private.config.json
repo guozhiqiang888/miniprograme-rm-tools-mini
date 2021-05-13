@@ -1,0 +1,37 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/authorization/authorization",
+          "pathName": "pages/authorization/authorization",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/prospectDetail/prospectDetail",
+          "pathName": "pages/prospectDetail/prospectDetail",
+          "query": "weburl=/home/prospectdetails&tid=E428FF276CB6448F926AAE78994CEAAB",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

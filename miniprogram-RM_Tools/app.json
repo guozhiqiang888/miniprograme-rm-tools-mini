@@ -6,9 +6,9 @@
     "pages/prospectDetail/prospectDetail",
     "pages/personFilter/personFilter",
     "pages/scanCode/scanCode",
-
     "pages/error/error",
-    "pages/errorinternet/errorinternet"
+    "pages/errorinternet/errorinternet",
+    "pages/coredocs/coredocs"
   ],
   "window": {
     "backgroundTextStyle": "light",

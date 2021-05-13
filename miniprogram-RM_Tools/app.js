@@ -1,12 +1,10 @@
 //app.js
+import { envSettings } from "./env.config"
+
 App({
-  onLaunch: function () {
-  },
   globalData: {
-    // domain: 'https://cmb.wechat.hsbcnet.com',
-    domain:'https://uat-cmb-wechat.services.hsbc.com.cn',
-    contentKey:'/sit-weconnect-wechat-frontend',
-    // contentKey:'/weconnect-front',
+    env:'sit',
+    isNewInfra: true,
     openId:'',
     takes:'',
     path:'',
@@ -16,5 +14,13 @@ App({
     local:'',
     start:'',
     end:''
+  },
+
+  onLaunch: function () {
+    if(this.globalData.isNewInfra){
+      Object.assign(this.globalData, envSettings['newInfra'][this.globalData.env])
+    }else{
+      Object.assign(this.globalData, envSettings[this.globalData.env])
+    }
   }
 })

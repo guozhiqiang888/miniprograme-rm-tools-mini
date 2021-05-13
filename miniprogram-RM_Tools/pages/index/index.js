@@ -84,7 +84,7 @@ Page({
           wx.switchTab({
             url: '../errorinternet/errorinternet'
           });
-        } else if (res.data.code == '400-0002'){
+        } else{
           wx.switchTab({
             url: '../errorinternet/errorinternet'
           });

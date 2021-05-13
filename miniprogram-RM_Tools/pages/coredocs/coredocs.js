@@ -7,8 +7,8 @@ Page({
   data: {
     path: '',
     tid:'',
-    basePath:app.globalData['basePath'],
-    domain: app.globalData.domain + app.globalData.contentKey
+    domain: app.globalData.domain + app.globalData.contentKey,
+    url:''
   },
 
   /**
@@ -16,10 +16,11 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    console.log(this.data.domain + this.data.basePath + '#' + options.weburl +'?tid='+options.tid);
+    const url = this.data.domain + options['weburl']
     that.setData({
-      path: options.weburl,
-      tid: options.tid
+      // path: options.weburl,
+      tid: options.tid,
+      url: options.weburl
     })
   },
 
@@ -48,7 +49,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log('***************');
+
   },
 
   /**
